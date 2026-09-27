@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOOTBALL MATRIX - Player Stats System</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0A0E1A;color:white}
+header{background:#111827;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20;border-bottom:1px solid #1f2937}
+.logo{font-family:'Montserrat';font-weight:800;font-size:22px} .logo span{color:#22C55E}
+.search{display:flex;gap:10px}
+.search input, .search select{padding:10px 14px;border-radius:8px;border:1px solid #374151;background:#1F2937;color:white}
+.hero{padding:40px 20px;text-align:center;background:linear-gradient(180deg,#111827 0%,#0A0E1A 100%)}
+.hero h1{font-family:'Montserrat';font-size:38px} .hero h1 span{color:#22C55E}
+.matrix-wrap{overflow:auto;padding:20px;max-width:1400px;margin:0 auto}
+table{width:100%;border-collapse:separate;border-spacing:0 8px;min-width:900px}
+th{font-size:11px;letter-spacing:1px;color:#9CA3AF;padding:12px 8px;text-align:left;text-transform:uppercase}
+td{background:#151B2D;padding:12px 8px;font-size:14px;border-top:1px solid #1f2937;border-bottom:1px solid #1f2937}
+td:first-child{border-radius:12px 0 0 12px;border-left:1px solid #1f2937;display:flex;align-items:center;gap:10px;font-weight:600}
+td:last-child{border-radius:0 12px 12px 0;border-right:1px solid #1f2937}
+.avatar{width:36px;height:36px;background:#22C55E;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#000}
+.badge{padding:4px 8px;border-radius:20px;font-size:11px;font-weight:700}
+.level-1{background:#22C55E22;color:#22C55E} .level-2{background:#3B82F622;color:#60A5FA} .level-3{background:#F59E0B22;color:#FBBF24}
+.stat{font-weight:700} .good{color:#22C55E} .avg{color:#FBBF24} .low{color:#EF4444}
+tr:hover td{background:#1A2238}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">FOOTBALL <span>MATRIX</span></div>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="Search player..." onkeyup="filterTable()">
+    <select id="levelFilter" onchange="filterTable()">
+      <option value="">All Levels</option>
+      <option value="Senior">Senior Team</option>
+      <option value="U23">U23 / Academy</option>
+      <option value="Youth">Youth / U19</option>
+    </select>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Every Player. <span>Every Stat.</span> One Matrix.</h1>
+  <p style="opacity:0.6;margin-top:10px">Performance • Levels • Minutes • Goals • Assists - updated live</p>
+</div>
+
+<div class="matrix-wrap">
+<table id="statsTable">
+<thead>
+<tr>
+  <th>Player</th><th>Level</th><th>Club / Nat</th><th>Apps</th><th>Mins</th><th>Goals</th><th>Assists</th><th>xG</th><th>Pass %</th><th>Rating</th>
+</tr>
+</thead>
+<tbody>
+<tr data-level="Senior">
+  <td><div class="avatar">PM</div> Patson M. - ST <span style="font-size:11px;opacity:0.5">ZAM</span></td>
+  <td><span class="badge level-1">Senior</span></td><td>Leicester / Zambia</td><td>32</td><td>2410</td><td class="stat good">14</td><td class="stat">5</td><td>11.2</td><td>78%</td><td class="stat good">7.8</td>
+</tr>
+<tr data-level="Senior">
+  <td><div class="avatar">ED</div> Enock D. - CM</td>
+  <td><span class="badge level-1">Senior</span></td><td>Brighton / Zambia</td><td>18</td><td>1520</td><td class="stat avg">2</td><td class="stat good">6</td><td>1.1</td><td class="stat good">89%</td><td class="stat good">7.4</td>
+</tr>
+<tr data-level="U23">
+  <td><div class="avatar">MK</div> Mwila K. - LW</td>
+  <td><span class="badge level-2">U23</span></td><td>Zanaco U23</td><td>24</td><td>1890</td><td class="stat good">9</td><td class="stat">7</td><td>6.8</td><td>81%</td><td class="stat avg">6.9</td>
+</tr>
+<tr data-level="Youth">
+  <td><div class="avatar">JC</div> Joseph C. - CB</td>
+  <td><span class="badge level-3">Youth</span></td><td>Kabwe Youth</td><td>12</td><td>1080</td><td class="stat low">0</td><td>0</td><td>0.2</td><td>84%</td><td class="stat avg">6.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<script>
+function filterTable(){
+  let q=document.getElementById('searchInput').value.toLowerCase();
+  let lvl=document.getElementById('levelFilter').value;
+  document.querySelectorAll('#statsTable tbody tr').forEach(r=>{
+    let name=r.innerText.toLowerCase();
+    let level=r.getAttribute('data-level');
+    let show = name.includes(q) && (lvl=='' || level==lvl);
+    r.style.display=show?'':'none';
+  });
+}
+</script>
+</body>
+</html>
