@@ -1,90 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FOOTBALL MATRIX - Player Stats System</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FOOTBALL MATRIX </title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#0A0E1A;color:white}
-header{background:#111827;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20;border-bottom:1px solid #1f2937}
-.logo{font-family:'Montserrat';font-weight:800;font-size:22px} .logo span{color:#22C55E}
-.search{display:flex;gap:10px}
-.search input, .search select{padding:10px 14px;border-radius:8px;border:1px solid #374151;background:#1F2937;color:white}
-.hero{padding:40px 20px;text-align:center;background:linear-gradient(180deg,#111827 0%,#0A0E1A 100%)}
-.hero h1{font-family:'Montserrat';font-size:38px} .hero h1 span{color:#22C55E}
-.matrix-wrap{overflow:auto;padding:20px;max-width:1400px;margin:0 auto}
-table{width:100%;border-collapse:separate;border-spacing:0 8px;min-width:900px}
-th{font-size:11px;letter-spacing:1px;color:#9CA3AF;padding:12px 8px;text-align:left;text-transform:uppercase}
-td{background:#151B2D;padding:12px 8px;font-size:14px;border-top:1px solid #1f2937;border-bottom:1px solid #1f2937}
-td:first-child{border-radius:12px 0 0 12px;border-left:1px solid #1f2937;display:flex;align-items:center;gap:10px;font-weight:600}
-td:last-child{border-radius:0 12px 12px 0;border-right:1px solid #1f2937}
-.avatar{width:36px;height:36px;background:#22C55E;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#000}
-.badge{padding:4px 8px;border-radius:20px;font-size:11px;font-weight:700}
-.level-1{background:#22C55E22;color:#22C55E} .level-2{background:#3B82F622;color:#60A5FA} .level-3{background:#F59E0B22;color:#FBBF24}
-.stat{font-weight:700} .good{color:#22C55E} .avg{color:#FBBF24} .low{color:#EF4444}
-tr:hover td{background:#1A2238}
+*{margin:0;padding:0;box-sizing:border-box} body{font-family:'Inter';background:#070A14;color:white}
+header{padding:16px 20px;background:#0F1424;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.logo{font-family:'Montserrat';font-weight:800} .logo span{color:#22C55E}
+.grid{max-width:1300px;margin:20px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.card{background:#151B2D;border:1px solid #1E293B;border-radius:16px;padding:16px;cursor:pointer;transition:.2s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-4px);border-color:#22C55E;box-shadow:0 10px 30px rgba(34,197,94,0.15)}
+.top{display:flex;gap:12px;align-items:center}
+.avatar{width:50px;height:50px;border-radius:12px;background:linear-gradient(135deg,#22C55E,#16A34A);display:flex;align-items:center;justify-content:center;font-weight:800;color:#000;font-size:18px}
+.meta h3{font-size:16px} .meta p{font-size:12px;opacity:.6}
+.stats-row{display:flex;justify-content:space-between;margin-top:14px;background:#0A0E1A;padding:10px;border-radius:10px}
+.stats-row div{text-align:center} .stats-row strong{display:block;font-size:16px} .stats-row span{font-size:10px;opacity:.5;letter-spacing:1px}
+.value-tag{position:absolute;top:12px;right:12px;background:#22C55E;color:#000;font-size:10px;font-weight:800;padding:4px 8px;border-radius:20px}
+.level{margin-top:10px;display:flex;gap:6px} .pill{font-size:10px;padding:4px 8px;border-radius:20px;background:#1F2937}
+
+/* MODAL */
+#modal{position:fixed;inset:0;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.modal-box{background:#111827;width:100%;max-width:700px;border-radius:20px;overflow:hidden;border:1px solid #22C55E}
+.modal-head{padding:20px;background:#151B2D;display:flex;gap:15px;align-items:center}
+.modal-body{padding:20px} table{width:100%;border-collapse:collapse;margin-top:15px} th,td{padding:10px;text-align:left;font-size:13px;border-bottom:1px solid #1F2937} th{color:#9CA3AF;font-size:11px}
+.close{margin-left:auto;background:#1F2937;border:none;color:white;width:32px;height:32px;border-radius:50%;cursor:pointer}
 </style>
 </head>
 <body>
-<header>
-  <div class="logo">FOOTBALL <span>MATRIX</span></div>
-  <div class="search">
-    <input type="text" id="searchInput" placeholder="Search player..." onkeyup="filterTable()">
-    <select id="levelFilter" onchange="filterTable()">
-      <option value="">All Levels</option>
-      <option value="Senior">Senior Team</option>
-      <option value="U23">U23 / Academy</option>
-      <option value="Youth">Youth / U19</option>
-    </select>
+<header><div class="logo">FOOTBALL <span>MATRIX</span></div><input id="search" placeholder="Search player..." style="padding:10px 14px;border-radius:8px;border:1px solid #374151;background:#1F2937;color:white" onkeyup="search()"></header>
+
+<div class="grid" id="grid"></div>
+
+<div id="modal" onclick="if(event.target==this)closeModal()">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="avatar" id="mAvatar">PM</div>
+      <div><h2 id="mName">Player Name</h2><p id="mClub" style="opacity:.6;font-size:13px"></p></div>
+      <button class="close" onclick="closeModal()">X</button>
+    </div>
+    <div class="modal-body">
+      <h4 style="color:#22C55E">Performance Timeline</h4>
+      <table id="timeline"><tr><th>Season</th><th>Level</th><th>Apps</th><th>G/A</th><th>Rating</th></tr></table>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px">
+        <div style="background:#0A0E1A;padding:12px;border-radius:10px"><small style="opacity:.5">STRENGTH</small><br><strong id="mStrength">Pace, Finishing</strong></div>
+        <div style="background:#0A0E1A;padding:12px;border-radius:10px"><small style="opacity:.5">MARKET VALUE</small><br><strong id="mValue">€2.4M</strong></div>
+      </div>
+    </div>
   </div>
-</header>
-
-<div class="hero">
-  <h1>Every Player. <span>Every Stat.</span> One Matrix.</h1>
-  <p style="opacity:0.6;margin-top:10px">Performance • Levels • Minutes • Goals • Assists - updated live</p>
-</div>
-
-<div class="matrix-wrap">
-<table id="statsTable">
-<thead>
-<tr>
-  <th>Player</th><th>Level</th><th>Club / Nat</th><th>Apps</th><th>Mins</th><th>Goals</th><th>Assists</th><th>xG</th><th>Pass %</th><th>Rating</th>
-</tr>
-</thead>
-<tbody>
-<tr data-level="Senior">
-  <td><div class="avatar">PM</div> Patson M. - ST <span style="font-size:11px;opacity:0.5">ZAM</span></td>
-  <td><span class="badge level-1">Senior</span></td><td>Leicester / Zambia</td><td>32</td><td>2410</td><td class="stat good">14</td><td class="stat">5</td><td>11.2</td><td>78%</td><td class="stat good">7.8</td>
-</tr>
-<tr data-level="Senior">
-  <td><div class="avatar">ED</div> Enock D. - CM</td>
-  <td><span class="badge level-1">Senior</span></td><td>Brighton / Zambia</td><td>18</td><td>1520</td><td class="stat avg">2</td><td class="stat good">6</td><td>1.1</td><td class="stat good">89%</td><td class="stat good">7.4</td>
-</tr>
-<tr data-level="U23">
-  <td><div class="avatar">MK</div> Mwila K. - LW</td>
-  <td><span class="badge level-2">U23</span></td><td>Zanaco U23</td><td>24</td><td>1890</td><td class="stat good">9</td><td class="stat">7</td><td>6.8</td><td>81%</td><td class="stat avg">6.9</td>
-</tr>
-<tr data-level="Youth">
-  <td><div class="avatar">JC</div> Joseph C. - CB</td>
-  <td><span class="badge level-3">Youth</span></td><td>Kabwe Youth</td><td>12</td><td>1080</td><td class="stat low">0</td><td>0</td><td>0.2</td><td>84%</td><td class="stat avg">6.5</td>
-</tr>
-</tbody>
-</table>
 </div>
 
 <script>
-function filterTable(){
-  let q=document.getElementById('searchInput').value.toLowerCase();
-  let lvl=document.getElementById('levelFilter').value;
-  document.querySelectorAll('#statsTable tbody tr').forEach(r=>{
-    let name=r.innerText.toLowerCase();
-    let level=r.getAttribute('data-level');
-    let show = name.includes(q) && (lvl=='' || level==lvl);
-    r.style.display=show?'':'none';
-  });
+const players=[
+{id:1,name:"Patson Daka",pos:"ST",club:"Leicester City / Zambia",initials:"PD",level:["Senior","U23","Youth"],apps:32,goals:14,assists:5,rating:7.8,value:"€4.2M",strength:"Finishing, Movement",timeline:[["2024/25","Senior",32,"14/5",7.8],["2022/23","Senior",28,"9/3",7.2],["2020/21","U23",22,"18/4",8.1]]},
+{id:2,name:"Enock Mwepu",pos:"CM",club:"Brighton / Zambia",initials:"EM",level:["Senior"],apps:18,goals:2,assists:6,rating:7.4,value:"€3.8M",strength:"Passing, Vision",timeline:[["2023/24","Senior",18,"2/6",7.4],["2021/22","Senior",24,"4/5",7.6]]},
+{id:3,name:"Mwila Kangwa",pos:"LW",club:"Zanaco FC",initials:"MK",level:["U23","Youth"],apps:24,goals:9,assists:7,rating:6.9,value:"€180K",strength:"Dribbling, Pace",timeline:[["2024/25","U23",24,"9/7",6.9],["2023/24","Youth",18,"11/5",7.3]]},
+{id:4,name:"Joseph Chanda",pos:"CB",club:"Kabwe Youth",initials:"JC",level:["Youth"],apps:12,goals:0,assists:0,rating:6.5,value:"€25K",strength:"Tackling, Aerial",timeline:[["2024/25","Youth",12,"0/0",6.5]]},
+];
+
+function render(list){
+  document.getElementById('grid').innerHTML=list.map(p=>`
+    <div class="card" onclick="openModal(${p.id})">
+      <div class="value-tag">${p.value}</div>
+      <div class="top"><div class="avatar">${p.initials}</div><div class="meta"><h3>${p.name}</h3><p>${p.pos} • ${p.club}</p></div></div>
+      <div class="stats-row"><div><strong>${p.apps}</strong><span>APPS</span></div><div><strong>${p.goals}</strong><span>GOALS</span></div><div><strong>${p.assists}</strong><span>ASSISTS</span></div><div><strong style="color:#22C55E">${p.rating}</strong><span>RATING</span></div></div>
+      <div class="level">${p.level.map(l=>`<span class="pill">${l}</span>`).join('')}</div>
+    </div>
+  `).join('');
 }
+function openModal(id){
+  let p=players.find(x=>x.id==id);
+  document.getElementById('mAvatar').innerText=p.initials;
+  document.getElementById('mName').innerText=p.name+' - '+p.pos;
+  document.getElementById('mClub').innerText=p.club;
+  document.getElementById('mStrength').innerText=p.strength;
+  document.getElementById('mValue').innerText=p.value;
+  document.getElementById('timeline').innerHTML='<tr><th>Season</th><th>Level</th><th>Apps</th><th>G/A</th><th>Rating</th></tr>'+p.timeline.map(t=>`<tr><td>${t[0]}</td><td>${t[1]}</td><td>${t[2]}</td><td>${t[3]}</td><td>${t[4]}</td></tr>`).join('');
+  document.getElementById('modal').style.display='flex';
+}
+function closeModal(){document.getElementById('modal').style.display='none'}
+function search(){let q=document.getElementById('search').value.toLowerCase();render(players.filter(p=>p.name.toLowerCase().includes(q)))}
+render(players);
 </script>
 </body>
 </html>
