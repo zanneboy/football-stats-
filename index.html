@@ -2,127 +2,136 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ZAM SCOUT MATRIX - Insight Edition</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>ZAM SCOUT MATRIX - Corporate Pro Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box} body{font-family:'Inter';background:#050810;color:#fff}
-header{position:sticky;top:0;z-index:40;background:rgba(5,8,16,.92);backdrop-filter:blur(12px);border-bottom:1px solid #1A2238;padding:12px 16px;display:flex;gap:12px;align-items:center}
+header{position:sticky;top:0;z-index:50;background:rgba(5,8,16,.95);backdrop-filter:blur(12px);border-bottom:1px solid #1A2238;padding:10px 16px;display:flex;gap:12px;align-items:center}
 .logo{font-family:'Montserrat';font-weight:900;font-size:20px}.logo span{color:#22C55E}
-.search{flex:1;max-width:500px;display:flex;gap:8px}
-.search input{flex:1;padding:11px 14px;border-radius:10px;border:1px solid #1E293B;background:#111728;color:#fff}
-.grid{max-width:1300px;margin:0 auto;padding:20px 16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.filters{max-width:1300px;margin:0 auto;padding:16px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:8px}
+@media(max-width:900px){.filters{grid-template-columns:1fr 1fr}}
+.filters input,.filters select{padding:11px;border-radius:10px;border:1px solid #1E293B;background:#111728;color:#fff;font-size:13px;width:100%}
+.grid{max-width:1300px;margin:0 auto;padding:0 16px 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
 @media(max-width:600px){.grid{grid-template-columns:1fr}}
-.card{background:#111728;border:1px solid #1E293B;border-radius:18px;padding:16px;transition:.2s}
-.card:hover{border-color:#22C55E44}
-.p-top{display:flex;gap:12px;align-items:center}.av{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#22C55E,#0EA5E9);display:flex;align-items:center;justify-content:center;font-weight:900;color:#000}
-.meta h3{font-size:15px}.meta small{opacity:.6;font-size:12px}
-.pill{font-size:10px;padding:5px 9px;border-radius:20px;background:#1A2238;border:1px solid #243044}
-.row{display:flex;justify-content:space-between;background:#080C19;padding:10px 12px;border-radius:10px;margin-top:8px;font-size:12px}
-.explore{width:100%;margin-top:12px;background:#fff;color:#000;padding:12px;border-radius:12px;font-weight:800;border:none;cursor:pointer}
-
-/* INSIGHT MODAL */
+.card{background:#111728;border:1px solid #1E293B;border-radius:20px;overflow:hidden;transition:.2s}
+.card:hover{border-color:#22C55E55;transform:translateY(-3px)}
+.card-top{position:relative;height:160px;background:#0A0E1A;overflow:hidden}
+.card-top img{width:100%;height:100%;object-fit:cover;opacity:.9}
+.card-top.overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 20%,#111728 95%)}
+.card-top.pos{position:absolute;top:10px;left:10px;background:#22C55E;color:#000;font-size:11px;font-weight:800;padding:5px 10px;border-radius:20px}
+.card-top.value{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);color:#fff;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;border:1px solid #ffffff22}
+.card-body{padding:14px}
+.pill{font-size:10px;padding:4px 8px;border-radius:20px;background:#1A2238;border:1px solid #243044}
+.row{display:flex;justify-content:space-between;background:#080C19;padding:9px 10px;border-radius:10px;margin-top:6px;font-size:12px}
+.btn{width:100%;margin-top:10px;padding:12px;border-radius:12px;font-weight:800;border:none;cursor:pointer}
+.btn-white{background:#fff;color:#000}.btn-green{background:#22C55E;color:#000}
 #modal{position:fixed;inset:0;background:#050810;z-index:100;display:none;overflow:auto}
-.m-header{position:sticky;top:0;z-index:5;background:#0A0E1A;border-bottom:1px solid #1E293B;padding:16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-.m-header .av{width:64px;height:64px;font-size:22px;border-radius:16px}
-.badge{background:#22C55E22;color:#22C55E;padding:6px 10px;border-radius:20px;font-size:10px;font-weight:800}
-.insight-wrap{max-width:1200px;margin:0 auto;padding:16px;display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
-@media(max-width:900px){.insight-wrap{grid-template-columns:1fr}}
+.m-hero{position:relative;height:280px;background:#0A0E1A}
+.m-hero img{width:100%;height:100%;object-fit:cover}
+.m-hero.grad{position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,#050810 90%)}
+.m-hero-info{position:absolute;bottom:16px;left:16px;right:16px;display:flex;gap:16px;align-items:flex-end}
+.m-hero-info img.m-avatar{width:90px;height:90px;border-radius:18px;border:3px solid #22C55E;object-fit:cover;background:#111728}
+.m-content{max-width:1200px;margin:0 auto;padding:16px;display:grid;grid-template-columns:1.1fr.9fr;gap:16px}
+@media(max-width:900px){.m-content{grid-template-columns:1fr}}
 .box{background:#111728;border:1px solid #1E293B;border-radius:18px;padding:16px}
-.box h4{font-size:11px;letter-spacing:1px;opacity:.5;text-transform:uppercase;margin-bottom:14px}
-.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.stat-item{background:#080C19;padding:12px;border-radius:12px;text-align:center;border:1px solid #1A2238}
-.stat-item strong{font-size:20px;display:block;color:#22C55E}.stat-item span{font-size:10px;opacity:.5;letter-spacing:.5px}
-.bar-wrap{margin:8px 0}.bar-label{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}.bar{height:8px;background:#080C19;border-radius:10px;overflow:hidden}.bar-fill{height:100%;background:linear-gradient(90deg,#22C55E,#16A34A);border-radius:10px}
-.timeline{display:flex;flex-direction:column;gap:10px}.t-item{display:flex;gap:12px;align-items:flex-start;background:#080C19;padding:12px;border-radius:12px;border-left:3px solid #22C55E}
-.canvas-wrap{position:relative;height:260px}
-table{width:100%;border-collapse:collapse} th,td{padding:10px 8px;font-size:12px;border-bottom:1px solid #1A2238;text-align:left} th{color:#6B7280;font-size:10px}
-footer{background:#080C19;border-top:1px solid #1A2238;padding:30px 16px;margin-top:40px;text-align:center;opacity:.5;font-size:11px}
+.box h4{font-size:11px;letter-spacing:1px;opacity:.5;text-transform:uppercase;margin-bottom:12px}
 </style>
 </head>
 <body>
-<header><div class="logo">ZAM<span>SCOUT</span></div><div class="search"><input id="q" placeholder="Search player..." oninput="filterP()"></div><a href="#grid" style="background:#22C55E;color:#000;padding:10px 16px;border-radius:20px;font-weight:700;font-size:12px;text-decoration:none">Explore</a></header>
+<header>
+  <div class="logo">ZAM<span>SCOUT</span> PRO</div>
+  <div style="flex:1"></div>
+  <span style="font-size:11px;opacity:.6;border:1px solid #1E293B;padding:6px 12px;border-radius:20px">CORPORATE GRADE • FAZ VERIFIED</span>
+</header>
+
+<div class="filters">
+  <input id="q" placeholder="Search player, club, position..." oninput="filterP()">
+  <select id="pos" onchange="filterP()"><option value="">All Positions</option><option>ST</option><option>LW</option><option>RW</option><option>CM</option><option>CB</option><option>GK</option></select>
+  <select id="age" onchange="filterP()"><option value="">Any Age</option><option value="u20">U20 Talents</option><option value="20-25">20-25</option><option value="25+">25+</option></select>
+  <select id="val" onchange="filterP()"><option value="">Any Value</option><option value="low">Under €100K</option><option value="mid">€100K - €1M</option><option value="high">€1M+</option></select>
+  <select id="lvl" onchange="filterP()"><option value="">All Levels</option><option>Senior</option><option>U23</option><option>Youth</option></select>
+</div>
 
 <div class="grid" id="grid"></div>
 
 <div id="modal">
-  <div class="m-header">
-    <div class="av" id="mAv">PD</div>
-    <div style="flex:1;min-width:200px"><h2 id="mName" style="font-family:Montserrat">Player</h2><p id="mMeta" style="opacity:.6;font-size:13px"></p><div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap" id="mPills"></div></div>
-    <div style="display:flex;gap:8px;margin-left:auto"><button onclick="closeM()" style="background:#1E293B;border:none;color:#fff;padding:10px 16px;border-radius:20px;cursor:pointer">✕ Close</button><button style="background:#22C55E;color:#000;padding:10px 18px;border-radius:20px;font-weight:800;border:none" onclick="alert('Agent request sent!')">Contact Agent</button></div>
-  </div>
-
-  <div class="insight-wrap">
-    <!-- LEFT COLUMN -->
-    <div style="display:flex;flex-direction:column;gap:16px">
-      <div class="box">
-        <h4>Performance Overview</h4>
-        <div class="stat-grid" id="mOverview"></div>
-        <div style="margin-top:16px">
-          <div class="bar-wrap"><div class="bar-label"><span>Finishing</span><span id="b1v">85%</span></div><div class="bar"><div id="b1" class="bar-fill" style="width:85%"></div></div></div>
-          <div class="bar-wrap"><div class="bar-label"><span>Passing</span><span id="b2v">78%</span></div><div class="bar"><div id="b2" class="bar-fill" style="width:78%"></div></div></div>
-          <div class="bar-wrap"><div class="bar-label"><span>Defensive Work</span><span id="b3v">62%</span></div><div class="bar"><div id="b3" class="bar-fill" style="width:62%"></div></div></div>
-        </div>
-      </div>
-
-      <div class="box"><h4>Attribute Radar - Scouting Insight</h4><div class="canvas-wrap"><canvas id="radar"></canvas></div></div>
-
-      <div class="box"><h4>Form - Last 5 Matches Rating</h4><div class="canvas-wrap" style="height:200px"><canvas id="formChart"></canvas></div></div>
+  <div class="m-hero">
+    <img id="mCover" src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1200">
+    <div class="grad"></div>
+    <div class="m-hero-info">
+      <img id="mAvatar" class="m-avatar" src="">
+      <div style="flex:1"><h1 id="mName" style="font-family:Montserrat;font-size:26px">Player Name</h1><p id="mMeta" style="opacity:.8;font-size:13px"></p><div id="mPills" style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap"></div></div>
+      <button onclick="closeM()" style="background:rgba(0,0,0,.6);border:1px solid #fff3;color:#fff;width:40px;height:40px;border-radius:50%">✕</button>
     </div>
-
-    <!-- RIGHT COLUMN -->
+  </div>
+  <div class="m-content">
     <div style="display:flex;flex-direction:column;gap:16px">
-      <div class="box"><h4>Discipline & Minutes Insight</h4><div id="mDisc"></div><div class="canvas-wrap" style="height:180px;margin-top:12px"><canvas id="minutesChart"></canvas></div></div>
-      
-      <div class="box"><h4>Transfer Trail - Till Now</h4><div id="mTransfer" class="timeline"></div></div>
-
-      <div class="box"><h4>Season Timeline - Every Level</h4><table id="mTime"><tr><th>Season</th><th>Team</th><th>Level</th><th>Apps</th><th>G/A</th><th>Rating</th></tr></table></div>
-
-      <div class="box"><h4>Scout Notes & Market Value</h4><p id="mNotes" style="font-size:13px;opacity:.8;line-height:1.6"></p><div style="margin-top:12px;background:#22C55E;color:#000;padding:12px;border-radius:10px;font-weight:800;text-align:center" id="mValue">€4.2M</div></div>
+      <div class="box"><h4>Insight Radar - 5 Key Attributes</h4><canvas id="radar" height="220"></canvas></div>
+      <div class="box"><h4>Minutes & Discipline Trend</h4><canvas id="bar" height="180"></canvas><div id="mDisc" style="margin-top:12px"></div></div>
+      <div class="box"><h4>Full Stats Table</h4><table id="mTable" style="width:100%;border-collapse:collapse"><tr><th style="text-align:left;font-size:10px;opacity:.5">Season</th><th>Team</th><th>Apps</th><th>G/A</th><th>Rating</th></tr></table></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="box"><h4>Transfer Trail - Verified</h4><div id="mTransfer"></div></div>
+      <div class="box"><h4>Physical & Contract</h4><div id="mPhysical"></div></div>
+      <div class="box"><h4>Scout Report & Video</h4><p id="mNotes" style="font-size:13px;line-height:1.6;opacity:.8"></p><div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><button class="btn btn-white">▶ Watch Highlights</button><button class="btn btn-green" onclick="alert('Agent contacted')">Contact Agent</button></div><div style="margin-top:12px;background:#080C19;padding:10px;border-radius:10px;font-size:11px"><strong>Trust:</strong> <span style="color:#22C55E">✓ FAZ Verified</span> • <span style="color:#22C55E">✓ Video Verified</span> • <span style="color:#60A5FA">✓ Data Verified</span></div></div>
     </div>
   </div>
 </div>
 
 <script>
-let radarC, formC, minutesC;
 const players=[
-{name:"Patson Daka",pos:"ST",club:"Leicester City",nationality:"Zambia National Team",age:27,initials:"PD",levels:["Senior","U23","Youth"],value:"€4.2M",apps:32,goals:14,assists:5,mins:2410,yellow:3,red:0,pass:78,xg:11.2,rating:7.8,pace:88,finishing:85,passing:68,defending:42,stamina:79,agent:"Agent: James M.",notes:"Elite off-ball movement. Proven European finisher. Low injury history. Best as pressing #9. Value stable. Recommendation: Mid-table Europe.",form:[7.2,7.8,8.1,7.4,8.3],minutesTrend:[1200,1890,1980,2410],transfers:[{from:"Kafue Celtic",to:"RB Salzburg",type:"Permanent",fee:"€250K",date:"2017"},{from:"Salzburg",to:"Leicester",type:"Permanent",fee:"€30M",date:"2021"},{from:"Leicester",to:"Current",type:"Playing",fee:"-",date:"Now"}],timeline:[["2024/25","Leicester","Senior",32,2410,"14/5",7.8],["2023/24","Leicester","Senior",28,1980,"8/3",7.1],["2019/20","Salzburg","U23",22,1890,"24/7",8.3]]},
-{name:"Mwila Kangwa",pos:"LW",club:"Zanaco FC",nationality:"Zambia U23",age:21,initials:"MK",levels:["U23","Youth"],value:"€180K",apps:24,goals:9,assists:7,mins:1890,yellow:5,red:1,pass:81,xg:6.8,rating:6.9,pace:91,finishing:72,passing:74,defending:38,stamina:76,agent:"Local Agent",notes:"Explosive pace, needs tactical coaching. 5 yellows = aggression issue. High upside for PSL or Tanzania. Needs finishing school.",form:[6.5,6.9,7.2,6.8,7.0],minutesTrend:[800,1440,1890,1890],transfers:[{from:"Chunga Youth",to:"Zanaco",type:"Free",fee:"Free",date:"2022"}],timeline:[["2024/25","Zanaco","U23",24,1890,"9/7",6.9]]},
-{name:"Joseph Chanda",pos:"CB",club:"Kabwe Youth",nationality:"Zambia U17",age:18,initials:"JC",levels:["Youth","U17"],value:"€25K",apps:12,goals:1,assists:0,mins:1080,yellow:2,red:0,pass:84,xg:0.2,rating:6.5,pace:68,finishing:32,passing:71,defending:82,stamina:73,agent:"Coach Bwalya",notes:"Calm aerial defender. Not goal threat but valuable for build-up. 84% pass for CB is elite at youth level. Project as development squad.",form:[6.2,6.4,6.5,6.6,6.5],minutesTrend:[600,900,1080,1080],transfers:[{from:"Kabanana",to:"Kabwe Youth",type:"Loan",fee:"K5,000",date:"2024"}],timeline:[["2024/25","Kabwe Youth","Youth",12,1080,"1/0",6.5]]}
+{name:"Patson Daka",pos:"ST",club:"Leicester City",nationality:"Zambia",age:27,foot:"Right",height:"183cm",weight:"76kg",contract:"2026",image:"https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=400",cover:"https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1200",initials:"PD",levels:["Senior"],value:"€4.2M",valueNum:4200000,apps:32,goals:14,assists:5,mins:2410,yellow:3,red:0,pass:78,rating:7.8,pace:88,finishing:85,passing:68,defending:42,stamina:79,notes:"Elite pressing forward. Proven in Europe.",transfers:[{from:"Kafue Celtic",to:"Salzburg",type:"Permanent",fee:"€250K",date:"2017"},{from:"Salzburg",to:"Leicester",type:"Permanent",fee:"€30M",date:"2021"}],timeline:[["2024/25","Leicester","Senior",32,"14/5",7.8]]},
+{name:"Mwila Kangwa",pos:"LW",club:"Zanaco FC",nationality:"Zambia U23",age:21,foot:"Left",height:"176cm",weight:"70kg",contract:"2025",image:"https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=400",cover:"https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1200",initials:"MK",levels:["U23","Youth"],value:"€180K",valueNum:180000,apps:24,goals:9,assists:7,mins:1890,yellow:5,red:1,pass:81,rating:6.9,pace:91,finishing:72,passing:74,defending:38,stamina:76,notes:"Explosive winger, needs coaching.",transfers:[{from:"Chunga Youth",to:"Zanaco",type:"Free",fee:"Free",date:"2022"}],timeline:[["2024/25","Zanaco","U23",24,"9/7",6.9]]},
+{name:"Joseph Chanda",pos:"CB",club:"Kabwe Youth",nationality:"Zambia U17",age:18,foot:"Right",height:"188cm",weight:"82kg",contract:"2026",image:"https://images.unsplash.com/photo-1560272564-c83b66a59d0a?w=400",cover:"https://images.unsplash.com/photo-1489944440615-453fc2b6a9?w=1200",initials:"JC",levels:["Youth"],value:"€25K",valueNum:25000,apps:12,goals:1,assists:0,mins:1080,yellow:2,red:0,pass:84,rating:6.5,pace:68,finishing:32,passing:71,defending:82,stamina:73,notes:"Calm aerial CB, 84% passing.",transfers:[{from:"Kabanana",to:"Kabwe Youth",type:"Loan",fee:"K5,000",date:"2024"}],timeline:[["2024/25","Kabwe Youth","Youth",12,"1/0",6.5]]}
 ];
+let radar, bar;
 function render(list){
- document.getElementById('grid').innerHTML=list.map((p,i)=>`
-  <div class="card"><div class="p-top"><div class="av">${p.initials}</div><div class="meta"><h3>${p.name}</h3><small>${p.pos} • ${p.age}y • ${p.club}</small></div></div>
-  <div style="margin:10px 0;display:flex;gap:6px;flex-wrap:wrap">${p.levels.map(l=>`<span class="pill">${l}</span>`).join('')}<span class="pill" style="background:#22C55E22;color:#22C55E">${p.value}</span></div>
-  <div class="row"><span>Apps</span><strong>${p.apps}</strong></div><div class="row"><span>G/A • Rating</span><strong>${p.goals}/${p.assists} • ${p.rating}</strong></div>
-  <button class="explore" onclick="openM(${players.indexOf(p)})">View Insight Profile →</button></div>`).join('');
+ document.getElementById('grid').innerHTML=list.map(p=>`
+  <div class="card">
+    <div class="card-top"><img src="${p.image}" onerror="this.src='https://via.placeholder.com/400x160?text=${p.initials}'"><div class="overlay"></div><span class="pos">${p.pos} • ${p.age}y</span><span class="value">${p.value}</span></div>
+    <div class="card-body">
+      <div style="display:flex;justify-content:space-between;align-items:center"><h3 style="font-size:15px">${p.name}</h3><span style="font-size:11px;color:#22C55E;font-weight:800">★ ${p.rating}</span></div>
+      <small style="opacity:.6;font-size:12px">${p.club} • ${p.foot} foot • ${p.height}</small>
+      <div style="margin:8px 0;display:flex;gap:6px;flex-wrap:wrap">${p.levels.map(l=>`<span class="pill">${l}</span>`).join('')}<span class="pill" style="border-color:#22C55E44;color:#22C55E">Contract: ${p.contract}</span></div>
+      <div class="row"><span>Apps • G/A • Mins</span><strong>${p.apps} • ${p.goals}/${p.assists} • ${p.mins}'</strong></div>
+      <button class="btn btn-white" onclick="openM(${players.indexOf(p)})">View Pro Profile + Photo 🖼️ →</button>
+    </div>
+  </div>`).join('');
 }
 function openM(idx){
  const p=players[idx];
- document.getElementById('mAv').innerText=p.initials;
- document.getElementById('mName').innerText=`${p.name} - ${p.pos} (${p.age})`;
- document.getElementById('mMeta').innerText=`${p.club} • ${p.nationality} • ${p.mins}' played`;
- document.getElementById('mPills').innerHTML=p.levels.map(l=>`<span class="pill">${l}</span>`).join('')+`<span class="badge">${p.value}</span>`;
- document.getElementById('mOverview').innerHTML=`<div class="stat-item"><strong>${p.apps}</strong><span>APPS</span></div><div class="stat-item"><strong>${p.goals}</strong><span>GOALS</span></div><div class="stat-item"><strong>${p.assists}</strong><span>ASSISTS</span></div><div class="stat-item"><strong>${p.mins}</strong><span>MINUTES</span></div><div class="stat-item"><strong>${p.xg}</strong><span>xG</span></div><div class="stat-item"><strong>${p.rating}</strong><span>RATING</span></div>`;
- document.getElementById('b1').style.width=p.finishing+'%'; document.getElementById('b1v').innerText=p.finishing+'%';
- document.getElementById('b2').style.width=p.pass+'%'; document.getElementById('b2v').innerText=p.pass+'%';
- document.getElementById('b3').style.width=p.defending+'%'; document.getElementById('b3v').innerText=p.defending+'%';
- document.getElementById('mDisc').innerHTML=`<div class="row"><span>Yellow Cards</span><strong style="color:#FBBF24">${p.yellow}</strong></div><div class="row"><span>Red Cards</span><strong style="color:${p.red>0?'#EF4444':'#fff'}">${p.red}</strong></div><div class="row"><span>Pass Accuracy</span><strong>${p.pass}%</strong></div><div class="row"><span>Discipline Score</span><strong>${p.yellow>4?'Needs Attention':'Good'}</strong></div>`;
- document.getElementById('mTransfer').innerHTML=p.transfers.map(t=>`<div class="t-item"><div><strong>${t.from} → ${t.to}</strong><br><small style="opacity:.6">${t.type} • ${t.fee} • ${t.date}</small></div></div>`).join('');
- document.getElementById('mTime').innerHTML='<tr><th>Season</th><th>Team</th><th>Level</th><th>Apps</th><th>G/A</th><th>Rating</th></tr>'+p.timeline.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${r[5]}</td></tr>`).join('');
- document.getElementById('mNotes').innerText=p.notes; document.getElementById('mValue').innerText='Market Value: '+p.value;
+ document.getElementById('mAvatar').src=p.image; document.getElementById('mCover').src=p.cover;
+ document.getElementById('mName').innerText=`${p.name} - ${p.pos}`; document.getElementById('mMeta').innerText=`${p.club} • ${p.nationality} • ${p.age}y • ${p.foot} foot`;
+ document.getElementById('mPills').innerHTML=`<span class="pill" style="background:#22C55E;color:#000;font-weight:800">${p.value}</span>`+p.levels.map(l=>`<span class="pill">${l}</span>`).join('');
+ document.getElementById('mTransfer').innerHTML=p.transfers.map(t=>`<div style="background:#080C19;padding:10px;border-radius:10px;margin:6px 0;border-left:3px solid #22C55E"><strong>${t.from} → ${t.to}</strong><br><small style="opacity:.6">${t.type} • ${t.fee} • ${t.date}</small></div>`).join('');
+ document.getElementById('mPhysical').innerHTML=`<div class="row"><span>Height / Weight</span><strong>${p.height} / ${p.weight}</strong></div><div class="row"><span>Preferred Foot</span><strong>${p.foot}</strong></div><div class="row"><span>Contract Expiry</span><strong>${p.contract}</strong></div><div class="row"><span>Pass % / Rating</span><strong>${p.pass}% / ${p.rating}</strong></div>`;
+ document.getElementById('mDisc').innerHTML=`<div class="row"><span>Yellow / Red</span><strong style="color:#FBBF24">${p.yellow} / ${p.red}</strong></div>`;
+ document.getElementById('mTable').innerHTML='<tr><th>Season</th><th>Team</th><th>Apps</th><th>G/A</th><th>Rating</th></tr>'+p.timeline.map(r=>`<tr><td style="padding:8px 0;font-size:12px">${r[0]}</td><td>${r[1]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${r[5]}</td></tr>`).join('');
+ document.getElementById('mNotes').innerText=p.notes;
  document.getElementById('modal').style.display='block';
-
- // Charts
- if(radarC) radarC.destroy(); if(formC) formC.destroy(); if(minutesC) minutesC.destroy();
- radarC=new Chart(document.getElementById('radar'),{type:'radar',data:{labels:['Pace','Finishing','Passing','Defending','Stamina'],datasets:[{label:p.name,data:[p.pace,p.finishing,p.passing,p.defending,p.stamina],backgroundColor:'rgba(34,197,94,0.2)',borderColor:'#22C55E',pointBackgroundColor:'#22C55E'}]},options:{scales:{r:{min:0,max:100,ticks:{display:false},grid:{color:'#1E293B'},pointLabels:{color:'#9CA3AF',font:{size:11}}}}}});
- formC=new Chart(document.getElementById('formChart'),{type:'line',data:{labels:['G1','G2','G3','G4','G5'],datasets:[{label:'Rating',data:p.form,borderColor:'#22C55E',backgroundColor:'rgba(34,197,94,0.1)',fill:true,tension:0.4}]},options:{plugins:{legend:{display:false}},scales:{y:{min:5,max:9,grid:{color:'#1A2238'}},x:{grid:{display:false}}}}});
- minutesC=new Chart(document.getElementById('minutesChart'),{type:'bar',data:{labels:['2021','2022','2023','2024'],datasets:[{label:'Minutes',data:p.minutesTrend,backgroundColor:'#22C55E',borderRadius:6}]},options:{plugins:{legend:{display:false}},scales:{y:{grid:{color:'#1A2238'}},x:{grid:{display:false}}}}});
+ if(radar) radar.destroy(); if(bar) bar.destroy();
+ radar=new Chart(document.getElementById('radar'),{type:'radar',data:{labels:['Pace','Finishing','Passing','Defending','Stamina'],datasets:[{data:[p.pace,p.finishing,p.passing,p.defending,p.stamina],backgroundColor:'rgba(34,197,94,0.2)',borderColor:'#22C55E',pointBackgroundColor:'#22C55E'}]},options:{scales:{r:{min:0,max:100,ticks:{display:false},grid:{color:'#1E293B'},angleLines:{color:'#1E293B'},pointLabels:{color:'#fff',font:{size:11}}}},plugins:{legend:{display:false}}}});
+ bar=new Chart(document.getElementById('bar'),{type:'bar',data:{labels:['Mins','Goals','Assists','Yellows'],datasets:[{data:[p.mins/100,p.goals*10,p.assists*10,p.yellow*10],backgroundColor:['#22C55E','#0EA5E9','#F59E0B','#EF4444']}]},options:{plugins:{legend:{display:false}},scales:{y:{grid:{color:'#1E293B'},ticks:{color:'#6B7280'}},x:{grid:{display:false},ticks:{color:'#fff'}}}});
 }
-function closeM(){document.getElementById('modal').style.display='none';}
-function filterP(){const q=document.getElementById('q').value.toLowerCase();render(players.filter(p=>p.name.toLowerCase().includes(q)||p.club.toLowerCase().includes(q)))}
+function closeM(){document.getElementById('modal').style.display='none'}
+function filterP(){
+ const q=document.getElementById('q').value.toLowerCase(); const pos=document.getElementById('pos').value; const ageF=document.getElementById('age').value; const valF=document.getElementById('val').value; const lvl=document.getElementById('lvl').value;
+ let f=players.filter(p=>{
+  if(q &&! (p.name.toLowerCase().includes(q) || p.club.toLowerCase().includes(q) || p.pos.toLowerCase().includes(q))) return false;
+  if(pos && p.pos!==pos) return false;
+  if(lvl &&!p.levels.includes(lvl)) return false;
+  if(ageF==='u20' && p.age>=20) return false;
+  if(ageF==='20-25' && (p.age<20 || p.age>25)) return false;
+  if(ageF==='25+' && p.age<25) return false;
+  if(valF==='low' && p.valueNum>=100000) return false;
+  if(valF==='mid' && (p.valueNum<100000 || p.valueNum>1000000)) return false;
+  if(valF==='high' && p.valueNum<=1000000) return false;
+  return true;
+ });
+ render(f);
+}
 render(players);
 </script>
-<footer>© 2026 ZAM SCOUT MATRIX • Data Policy • FAZ Compliance • Built for Zambian Football</footer>
 </body>
 </html>
