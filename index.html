@@ -2,135 +2,113 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ZAM SCOUT MATRIX - Corporate Pro Edition</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<title>ZAM SCOUT MATRIX - Professional Football Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box} body{font-family:'Inter';background:#050810;color:#fff}
-header{position:sticky;top:0;z-index:50;background:rgba(5,8,16,.95);backdrop-filter:blur(12px);border-bottom:1px solid #1A2238;padding:10px 16px;display:flex;gap:12px;align-items:center}
-.logo{font-family:'Montserrat';font-weight:900;font-size:20px}.logo span{color:#22C55E}
-.filters{max-width:1300px;margin:0 auto;padding:16px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:8px}
-@media(max-width:900px){.filters{grid-template-columns:1fr 1fr}}
-.filters input,.filters select{padding:11px;border-radius:10px;border:1px solid #1E293B;background:#111728;color:#fff;font-size:13px;width:100%}
-.grid{max-width:1300px;margin:0 auto;padding:0 16px 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
-@media(max-width:600px){.grid{grid-template-columns:1fr}}
-.card{background:#111728;border:1px solid #1E293B;border-radius:20px;overflow:hidden;transition:.2s}
-.card:hover{border-color:#22C55E55;transform:translateY(-3px)}
-.card-top{position:relative;height:160px;background:#0A0E1A;overflow:hidden}
-.card-top img{width:100%;height:100%;object-fit:cover;opacity:.9}
-.card-top.overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 20%,#111728 95%)}
-.card-top.pos{position:absolute;top:10px;left:10px;background:#22C55E;color:#000;font-size:11px;font-weight:800;padding:5px 10px;border-radius:20px}
-.card-top.value{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);color:#fff;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;border:1px solid #ffffff22}
-.card-body{padding:14px}
-.pill{font-size:10px;padding:4px 8px;border-radius:20px;background:#1A2238;border:1px solid #243044}
-.row{display:flex;justify-content:space-between;background:#080C19;padding:9px 10px;border-radius:10px;margin-top:6px;font-size:12px}
-.btn{width:100%;margin-top:10px;padding:12px;border-radius:12px;font-weight:800;border:none;cursor:pointer}
-.btn-white{background:#fff;color:#000}.btn-green{background:#22C55E;color:#000}
-#modal{position:fixed;inset:0;background:#050810;z-index:100;display:none;overflow:auto}
-.m-hero{position:relative;height:280px;background:#0A0E1A}
-.m-hero img{width:100%;height:100%;object-fit:cover}
-.m-hero.grad{position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,#050810 90%)}
-.m-hero-info{position:absolute;bottom:16px;left:16px;right:16px;display:flex;gap:16px;align-items:flex-end}
-.m-hero-info img.m-avatar{width:90px;height:90px;border-radius:18px;border:3px solid #22C55E;object-fit:cover;background:#111728}
-.m-content{max-width:1200px;margin:0 auto;padding:16px;display:grid;grid-template-columns:1.1fr.9fr;gap:16px}
-@media(max-width:900px){.m-content{grid-template-columns:1fr}}
-.box{background:#111728;border:1px solid #1E293B;border-radius:18px;padding:16px}
-.box h4{font-size:11px;letter-spacing:1px;opacity:.5;text-transform:uppercase;margin-bottom:12px}
+*{margin:0;padding:0;box-sizing:border-box} body{font-family:'Inter';background:#060912;color:#E5E7EB}
+header{position:sticky;top:0;z-index:20;background:#060912;border-bottom:1px solid #151A2A;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Montserrat';font-weight:800;font-size:20px;letter-spacing:-.5px}.logo span{color:#22C55E}
+.search{flex:1;max-width:400px;margin:0 20px}.search input{width:100%;padding:10px 14px;border-radius:10px;border:1px solid #1E293B;background:#0F1320;color:#fff}
+.grid{max-width:1400px;margin:0 auto;padding:24px 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.search{display:none}}
+.card{background:#0D111F;border:1px solid #1A2035;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.card:hover{border-color:#22C55E44}
+.top{display:flex;gap:14px}
+.photo{width:64px;height:64px;border-radius:12px;object-fit:cover;background:#151A2A;flex-shrink:0;border:1px solid #1E293B}
+.info{flex:1;min-width:0}.info h3{font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.info p{font-size:11px;opacity:.6;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.badges{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.badge{font-size:10px;padding:4px 8px;border-radius:20px;background:#151A2A;border:1px solid #1E293B;font-weight:600;letter-spacing:.3px}
+.badge-green{background:#22C55E14;color:#22C55E;border-color:#22C55E30}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.s{background:#080B16;border:1px solid #151A2A;border-radius:10px;padding:10px;text-align:center}
+.s span{font-size:10px;opacity:.5;letter-spacing:.5px;display:block;text-transform:uppercase}
+.s strong{font-size:14px;display:block;margin-top:2px;font-weight:700}
+.s.good strong{color:#22C55E}.s.warn strong{color:#FBBF24}
+.divider{height:1px;background:#151A2A}
+.transfer-box{background:#080B16;border-radius:10px;padding:10px;border:1px solid #151A2A;font-size:11px;line-height:1.6}
+.transfer-box b{color:#fff}.transfer-box span{opacity:.6}
+.footer-btns{display:flex;gap:8px}
+.btn{flex:1;padding:11px;border-radius:10px;font-weight:700;font-size:12px;border:none;cursor:pointer;text-align:center;text-decoration:none}
+.btn-green{background:#22C55E;color:#000}.btn-dark{background:#151A2A;color:#fff;border:1px solid #1E293B}
+/* MODAL SIMPLE */
+#modal{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:50;display:none;padding:16px;overflow:auto}
+.m-box{max-width:800px;margin:20px auto;background:#0D111F;border:1px solid #1E293B;border-radius:20px;overflow:hidden}
+.m-head{padding:20px;display:flex;gap:16px;align-items:center;border-bottom:1px solid #151A2A}
+.m-body{padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.m-body{grid-template-columns:1fr}}
+.m-card{background:#080B16;border:1px solid #151A2A;padding:14px;border-radius:12px}
+.m-card h5{font-size:11px;opacity:.5;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+table{width:100%;border-collapse:collapse} th,td{padding:8px;font-size:12px;border-bottom:1px solid #151A2A;text-align:left} th{opacity:.5;font-size:10px}
+footer{border-top:1px solid #151A2A;margin-top:40px;padding:30px 20px;background:#080B16}
+.f{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:24px}
+@media(max-width:900px){.f{grid-template-columns:1fr 1fr}.f>div:first-child{grid-column:1/-1}}
+.f h5{font-size:12px;margin-bottom:10px}.f a,.f p{font-size:12px;opacity:.6;margin:5px 0;display:block;line-height:1.5}
 </style>
 </head>
 <body>
 <header>
-  <div class="logo">ZAM<span>SCOUT</span> PRO</div>
-  <div style="flex:1"></div>
-  <span style="font-size:11px;opacity:.6;border:1px solid #1E293B;padding:6px 12px;border-radius:20px">CORPORATE GRADE • FAZ VERIFIED</span>
+  <div class="logo">ZAM<span>SCOUT</span> MATRIX</div>
+  <div class="search"><input id="q" placeholder="Search player, club, position..." oninput="filterP()"></div>
+  <div style="font-size:11px;opacity:.6;border:1px solid #1E293B;padding:6px 12px;border-radius:20px">PRO AGENCY • LUSAKA</div>
 </header>
 
-<div class="filters">
-  <input id="q" placeholder="Search player, club, position..." oninput="filterP()">
-  <select id="pos" onchange="filterP()"><option value="">All Positions</option><option>ST</option><option>LW</option><option>RW</option><option>CM</option><option>CB</option><option>GK</option></select>
-  <select id="age" onchange="filterP()"><option value="">Any Age</option><option value="u20">U20 Talents</option><option value="20-25">20-25</option><option value="25+">25+</option></select>
-  <select id="val" onchange="filterP()"><option value="">Any Value</option><option value="low">Under €100K</option><option value="mid">€100K - €1M</option><option value="high">€1M+</option></select>
-  <select id="lvl" onchange="filterP()"><option value="">All Levels</option><option>Senior</option><option>U23</option><option>Youth</option></select>
-</div>
+<div style="max-width:1400px;margin:0 auto;padding:20px 20px 0"><h1 style="font-family:Montserrat;font-size:28px;letter-spacing:-1px">Verified Zambian Players - Every Stat On Card</h1><p style="opacity:.6;font-size:13px;margin-top:6px">Dark professional scouting agency. No clicks needed to see value. Profile picture, minutes, cards, transfer trail visible.</p></div>
 
 <div class="grid" id="grid"></div>
 
-<div id="modal">
-  <div class="m-hero">
-    <img id="mCover" src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1200">
-    <div class="grad"></div>
-    <div class="m-hero-info">
-      <img id="mAvatar" class="m-avatar" src="">
-      <div style="flex:1"><h1 id="mName" style="font-family:Montserrat;font-size:26px">Player Name</h1><p id="mMeta" style="opacity:.8;font-size:13px"></p><div id="mPills" style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap"></div></div>
-      <button onclick="closeM()" style="background:rgba(0,0,0,.6);border:1px solid #fff3;color:#fff;width:40px;height:40px;border-radius:50%">✕</button>
-    </div>
-  </div>
-  <div class="m-content">
-    <div style="display:flex;flex-direction:column;gap:16px">
-      <div class="box"><h4>Insight Radar - 5 Key Attributes</h4><canvas id="radar" height="220"></canvas></div>
-      <div class="box"><h4>Minutes & Discipline Trend</h4><canvas id="bar" height="180"></canvas><div id="mDisc" style="margin-top:12px"></div></div>
-      <div class="box"><h4>Full Stats Table</h4><table id="mTable" style="width:100%;border-collapse:collapse"><tr><th style="text-align:left;font-size:10px;opacity:.5">Season</th><th>Team</th><th>Apps</th><th>G/A</th><th>Rating</th></tr></table></div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:16px">
-      <div class="box"><h4>Transfer Trail - Verified</h4><div id="mTransfer"></div></div>
-      <div class="box"><h4>Physical & Contract</h4><div id="mPhysical"></div></div>
-      <div class="box"><h4>Scout Report & Video</h4><p id="mNotes" style="font-size:13px;line-height:1.6;opacity:.8"></p><div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><button class="btn btn-white">▶ Watch Highlights</button><button class="btn btn-green" onclick="alert('Agent contacted')">Contact Agent</button></div><div style="margin-top:12px;background:#080C19;padding:10px;border-radius:10px;font-size:11px"><strong>Trust:</strong> <span style="color:#22C55E">✓ FAZ Verified</span> • <span style="color:#22C55E">✓ Video Verified</span> • <span style="color:#60A5FA">✓ Data Verified</span></div></div>
-    </div>
-  </div>
-</div>
+<div id="modal" onclick="if(event.target==this)closeM()"><div class="m-box"><div class="m-head"><img id="mPhoto" style="width:72px;height:72px;border-radius:14px;object-fit:cover" src=""><div><h2 id="mName">Player</h2><p id="mMeta" style="opacity:.6;font-size:12px"></p></div><button onclick="closeM()" style="margin-left:auto;background:#151A2A;border:none;color:#fff;width:36px;height:36px;border-radius:50%">✕</button></div><div class="m-body"><div class="m-card"><h5>Discipline & Minutes</h5><div id="mDisc"></div></div><div class="m-card"><h5>Physical & Contract</h5><div id="mPhys"></div></div><div class="m-card" style="grid-column:1/-1"><h5>Transfer History - Till Now</h5><div id="mTrans"></div></div><div class="m-card" style="grid-column:1/-1"><h5>Full Season Timeline</h5><table id="mTime"></table></div></div></div></div>
+
+<footer><div class="f"><div><div class="logo">ZAM<span>SCOUT</span> MATRIX</div><p style="margin-top:8px;max-width:340px">Professional football data agency based in 15 Miles, Lusaka. We verify every Zambian player's data from U17 to Senior. Helping scouts find talent without YouTube highlights.</p><p style="margin-top:10px">Email: scouts@zamscoutmatrix.com<br>WhatsApp: +260 97 000 0000<br>Location: 15 Miles, Lusaka, Zambia</p></div><div><h5>For Scouts</h5><a>How it Works</a><a>Verification Process</a><a>Request Full Report</a></div><div><h5>Policies</h5><a>Data Accuracy Policy</a><a>Player Consent & Privacy</a><a>Transfer Fee Disclaimer</a><a>FAZ Compliance</a></div><div><h5>Contact</h5><a>Kitwe Office</a><a>Lusaka HQ</a><a>Terms • Privacy</a></div></div><div style="max-width:1400px;margin:20px auto 0;border-top:1px solid #151A2A;padding-top:16px;display:flex;justify-content:space-between;font-size:11px;opacity:.5"><span>© 2026 ZAM SCOUT MATRIX LTD</span><span>Built for Zambian Football</span></div></footer>
 
 <script>
 const players=[
-{name:"Patson Daka",pos:"ST",club:"Leicester City",nationality:"Zambia",age:27,foot:"Right",height:"183cm",weight:"76kg",contract:"2026",image:"https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=400",cover:"https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1200",initials:"PD",levels:["Senior"],value:"€4.2M",valueNum:4200000,apps:32,goals:14,assists:5,mins:2410,yellow:3,red:0,pass:78,rating:7.8,pace:88,finishing:85,passing:68,defending:42,stamina:79,notes:"Elite pressing forward. Proven in Europe.",transfers:[{from:"Kafue Celtic",to:"Salzburg",type:"Permanent",fee:"€250K",date:"2017"},{from:"Salzburg",to:"Leicester",type:"Permanent",fee:"€30M",date:"2021"}],timeline:[["2024/25","Leicester","Senior",32,"14/5",7.8]]},
-{name:"Mwila Kangwa",pos:"LW",club:"Zanaco FC",nationality:"Zambia U23",age:21,foot:"Left",height:"176cm",weight:"70kg",contract:"2025",image:"https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=400",cover:"https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1200",initials:"MK",levels:["U23","Youth"],value:"€180K",valueNum:180000,apps:24,goals:9,assists:7,mins:1890,yellow:5,red:1,pass:81,rating:6.9,pace:91,finishing:72,passing:74,defending:38,stamina:76,notes:"Explosive winger, needs coaching.",transfers:[{from:"Chunga Youth",to:"Zanaco",type:"Free",fee:"Free",date:"2022"}],timeline:[["2024/25","Zanaco","U23",24,"9/7",6.9]]},
-{name:"Joseph Chanda",pos:"CB",club:"Kabwe Youth",nationality:"Zambia U17",age:18,foot:"Right",height:"188cm",weight:"82kg",contract:"2026",image:"https://images.unsplash.com/photo-1560272564-c83b66a59d0a?w=400",cover:"https://images.unsplash.com/photo-1489944440615-453fc2b6a9?w=1200",initials:"JC",levels:["Youth"],value:"€25K",valueNum:25000,apps:12,goals:1,assists:0,mins:1080,yellow:2,red:0,pass:84,rating:6.5,pace:68,finishing:32,passing:71,defending:82,stamina:73,notes:"Calm aerial CB, 84% passing.",transfers:[{from:"Kabanana",to:"Kabwe Youth",type:"Loan",fee:"K5,000",date:"2024"}],timeline:[["2024/25","Kabwe Youth","Youth",12,"1/0",6.5]]}
+{name:"Patson Daka",pos:"ST",club:"Leicester City",level:"Senior",nationality:"Zambia National Team",age:27,foot:"Right",height:"183cm",contract:"2026",image:"https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=200",value:"€4.2M",apps:32,mins:2410,goals:14,assists:5,yellow:3,red:0,pass:"78%",rating:7.8,transfers:[{from:"Kafue Celtic",to:"RB Salzburg",type:"Permanent",fee:"€250K",date:"2017"},{from:"Salzburg",to:"Leicester",type:"Permanent",fee:"€30M",date:"2021 - Now"}]},
+{name:"Mwila Kangwa",pos:"LW",club:"Zanaco FC",level:"U23",nationality:"Zambia U23",age:21,foot:"Left",height:"176cm",contract:"2025",image:"https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=200",value:"€180K",apps:24,mins:1890,goals:9,assists:7,yellow:5,red:1,pass:"81%",rating:6.9,transfers:[{from:"Chunga Youth",to:"Zanaco Youth",type:"Free",fee:"Free",date:"2022"},{from:"Zanaco Youth",to:"Zanaco",type:"Promotion",fee:"-",date:"2024 - Now"}]},
+{name:"Joseph Chanda",pos:"CB",club:"Kabwe Youth",level:"Youth",nationality:"Zambia U17",age:18,foot:"Right",height:"188cm",contract:"2026",image:"https://images.unsplash.com/photo-1560272564-c83b66a59d0a?w=200",value:"€25K",apps:12,mins:1080,goals:1,assists:0,yellow:2,red:0,pass:"84%",rating:6.5,transfers:[{from:"Kabanana FC",to:"Kabwe Youth",type:"Loan",fee:"K5,000",date:"2024 - Now"}]},
+{name:"Enock Sakala",pos:"CM",club:"Power Dynamos",level:"Senior",nationality:"Zambia",age:23,foot:"Right",height:"180cm",contract:"2025",image:"https://images.unsplash.com/photo-1553778263-73a83e0f2b0e?w=200",value:"€95K",apps:28,mins:2240,goals:3,assists:8,yellow:6,red:0,pass:"87%",rating:7.2,transfers:[{from:"Kitwe Academy",to:"Power Dynamos",type:"Permanent",fee:"K20,000",date:"2021 - Now"}]}
 ];
-let radar, bar;
 function render(list){
- document.getElementById('grid').innerHTML=list.map(p=>`
+ document.getElementById('grid').innerHTML=list.map((p,i)=>`
   <div class="card">
-    <div class="card-top"><img src="${p.image}" onerror="this.src='https://via.placeholder.com/400x160?text=${p.initials}'"><div class="overlay"></div><span class="pos">${p.pos} • ${p.age}y</span><span class="value">${p.value}</span></div>
-    <div class="card-body">
-      <div style="display:flex;justify-content:space-between;align-items:center"><h3 style="font-size:15px">${p.name}</h3><span style="font-size:11px;color:#22C55E;font-weight:800">★ ${p.rating}</span></div>
-      <small style="opacity:.6;font-size:12px">${p.club} • ${p.foot} foot • ${p.height}</small>
-      <div style="margin:8px 0;display:flex;gap:6px;flex-wrap:wrap">${p.levels.map(l=>`<span class="pill">${l}</span>`).join('')}<span class="pill" style="border-color:#22C55E44;color:#22C55E">Contract: ${p.contract}</span></div>
-      <div class="row"><span>Apps • G/A • Mins</span><strong>${p.apps} • ${p.goals}/${p.assists} • ${p.mins}'</strong></div>
-      <button class="btn btn-white" onclick="openM(${players.indexOf(p)})">View Pro Profile + Photo 🖼️ →</button>
+    <div class="top">
+      <img class="photo" src="${p.image}" onerror="this.src='https://via.placeholder.com/64?text=${p.pos}'">
+      <div class="info">
+        <h3>${p.name} • ${p.pos}</h3>
+        <p>${p.club} • ${p.age}y • ${p.foot} • ${p.height} • Contract: ${p.contract}</p>
+        <div class="badges"><span class="badge badge-green">${p.level}</span><span class="badge">${p.nationality}</span><span class="badge badge-green">${p.value}</span><span class="badge">★ ${p.rating}</span></div>
+      </div>
     </div>
+    <div class="stats">
+      <div class="s"><span>Apps</span><strong>${p.apps}</strong></div>
+      <div class="s"><span>Mins</span><strong>${p.mins}'</strong></div>
+      <div class="s good"><span>G/A</span><strong>${p.goals}/${p.assists}</strong></div>
+      <div class="s ${p.yellow>4?'warn':''}"><span>Cards</span><strong>${p.yellow}Y ${p.red}R</strong></div>
+    </div>
+    <div class="stats">
+      <div class="s"><span>Pass %</span><strong>${p.pass}</strong></div>
+      <div class="s"><span>Rating</span><strong>${p.rating}</strong></div>
+      <div class="s"><span>Foot</span><strong>${p.foot}</strong></div>
+      <div class="s"><span>Height</span><strong>${p.height}</strong></div>
+    </div>
+    <div class="divider"></div>
+    <div class="transfer-box">
+      ${p.transfers.map(t=>`<div><b>${t.from} → ${t.to}</b><br><span>Type: ${t.type} • Fee: ${t.fee} • ${t.date}</span></div>`).join('<div class="divider" style="margin:6px 0"></div>')}
+    </div>
+    <div class="footer-btns"><button class="btn btn-dark" onclick="openM(${players.indexOf(p)})">Full Profile</button><button class="btn btn-green" onclick="alert('Agent contact request sent for ${p.name}')">Contact Agent</button></div>
   </div>`).join('');
 }
 function openM(idx){
  const p=players[idx];
- document.getElementById('mAvatar').src=p.image; document.getElementById('mCover').src=p.cover;
- document.getElementById('mName').innerText=`${p.name} - ${p.pos}`; document.getElementById('mMeta').innerText=`${p.club} • ${p.nationality} • ${p.age}y • ${p.foot} foot`;
- document.getElementById('mPills').innerHTML=`<span class="pill" style="background:#22C55E;color:#000;font-weight:800">${p.value}</span>`+p.levels.map(l=>`<span class="pill">${l}</span>`).join('');
- document.getElementById('mTransfer').innerHTML=p.transfers.map(t=>`<div style="background:#080C19;padding:10px;border-radius:10px;margin:6px 0;border-left:3px solid #22C55E"><strong>${t.from} → ${t.to}</strong><br><small style="opacity:.6">${t.type} • ${t.fee} • ${t.date}</small></div>`).join('');
- document.getElementById('mPhysical').innerHTML=`<div class="row"><span>Height / Weight</span><strong>${p.height} / ${p.weight}</strong></div><div class="row"><span>Preferred Foot</span><strong>${p.foot}</strong></div><div class="row"><span>Contract Expiry</span><strong>${p.contract}</strong></div><div class="row"><span>Pass % / Rating</span><strong>${p.pass}% / ${p.rating}</strong></div>`;
- document.getElementById('mDisc').innerHTML=`<div class="row"><span>Yellow / Red</span><strong style="color:#FBBF24">${p.yellow} / ${p.red}</strong></div>`;
- document.getElementById('mTable').innerHTML='<tr><th>Season</th><th>Team</th><th>Apps</th><th>G/A</th><th>Rating</th></tr>'+p.timeline.map(r=>`<tr><td style="padding:8px 0;font-size:12px">${r[0]}</td><td>${r[1]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${r[5]}</td></tr>`).join('');
- document.getElementById('mNotes').innerText=p.notes;
+ document.getElementById('mPhoto').src=p.image; document.getElementById('mName').innerText=p.name+' - '+p.pos;
+ document.getElementById('mMeta').innerText=`${p.club} • ${p.nationality} • ${p.age}y • ${p.value}`;
+ document.getElementById('mDisc').innerHTML=`<div class="row" style="display:flex;justify-content:space-between;background:#080B16;padding:8px;border-radius:8px;margin-top:6px;font-size:12px"><span>Yellow</span><strong>${p.yellow}</strong></div><div class="row" style="display:flex;justify-content:space-between;background:#080B16;padding:8px;border-radius:8px;margin-top:6px;font-size:12px"><span>Red</span><strong>${p.red}</strong></div><div class="row" style="display:flex;justify-content:space-between;background:#080B16;padding:8px;border-radius:8px;margin-top:6px;font-size:12px"><span>Minutes</span><strong>${p.mins}'</strong></div>`;
+ document.getElementById('mPhys').innerHTML=`<div class="row" style="display:flex;justify-content:space-between;background:#080B16;padding:8px;border-radius:8px;margin-top:6px;font-size:12px"><span>Foot</span><strong>${p.foot}</strong></div><div class="row" style="display:flex;justify-content:space-between;background:#080B16;padding:8px;border-radius:8px;margin-top:6px;font-size:12px"><span>Height</span><strong>${p.height}</strong></div><div class="row" style="display:flex;justify-content:space-between;background:#080B16;padding:8px;border-radius:8px;margin-top:6px;font-size:12px"><span>Contract</span><strong>${p.contract}</strong></div>`;
+ document.getElementById('mTrans').innerHTML=p.transfers.map(t=>`<div style="background:#080B16;padding:10px;border-radius:10px;margin:6px 0;border-left:3px solid #22C55E"><b>${t.from} → ${t.to}</b><br><span style="opacity:.6;font-size:11px">${t.type} • ${t.fee} • ${t.date}</span></div>`).join('');
+ document.getElementById('mTime').innerHTML='<tr><th>Season</th><th>Level</th><th>Apps</th><th>G/A</th></tr><tr><td>2024/25</td><td>'+p.level+'</td><td>'+p.apps+'</td><td>'+p.goals+'/'+p.assists+'</td></tr>';
  document.getElementById('modal').style.display='block';
- if(radar) radar.destroy(); if(bar) bar.destroy();
- radar=new Chart(document.getElementById('radar'),{type:'radar',data:{labels:['Pace','Finishing','Passing','Defending','Stamina'],datasets:[{data:[p.pace,p.finishing,p.passing,p.defending,p.stamina],backgroundColor:'rgba(34,197,94,0.2)',borderColor:'#22C55E',pointBackgroundColor:'#22C55E'}]},options:{scales:{r:{min:0,max:100,ticks:{display:false},grid:{color:'#1E293B'},angleLines:{color:'#1E293B'},pointLabels:{color:'#fff',font:{size:11}}}},plugins:{legend:{display:false}}}});
- bar=new Chart(document.getElementById('bar'),{type:'bar',data:{labels:['Mins','Goals','Assists','Yellows'],datasets:[{data:[p.mins/100,p.goals*10,p.assists*10,p.yellow*10],backgroundColor:['#22C55E','#0EA5E9','#F59E0B','#EF4444']}]},options:{plugins:{legend:{display:false}},scales:{y:{grid:{color:'#1E293B'},ticks:{color:'#6B7280'}},x:{grid:{display:false},ticks:{color:'#fff'}}}});
 }
 function closeM(){document.getElementById('modal').style.display='none'}
-function filterP(){
- const q=document.getElementById('q').value.toLowerCase(); const pos=document.getElementById('pos').value; const ageF=document.getElementById('age').value; const valF=document.getElementById('val').value; const lvl=document.getElementById('lvl').value;
- let f=players.filter(p=>{
-  if(q &&! (p.name.toLowerCase().includes(q) || p.club.toLowerCase().includes(q) || p.pos.toLowerCase().includes(q))) return false;
-  if(pos && p.pos!==pos) return false;
-  if(lvl &&!p.levels.includes(lvl)) return false;
-  if(ageF==='u20' && p.age>=20) return false;
-  if(ageF==='20-25' && (p.age<20 || p.age>25)) return false;
-  if(ageF==='25+' && p.age<25) return false;
-  if(valF==='low' && p.valueNum>=100000) return false;
-  if(valF==='mid' && (p.valueNum<100000 || p.valueNum>1000000)) return false;
-  if(valF==='high' && p.valueNum<=1000000) return false;
-  return true;
- });
- render(f);
-}
+function filterP(){const q=document.getElementById('q').value.toLowerCase();render(players.filter(p=>p.name.toLowerCase().includes(q)||p.club.toLowerCase().includes(q)||p.pos.toLowerCase().includes(q)))}
 render(players);
 </script>
 </body>
