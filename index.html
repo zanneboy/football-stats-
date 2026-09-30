@@ -1,115 +1,3480 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ZAM SCOUT MATRIX - Professional Football Agency</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ZAM SCOUT MATRIX | Football Intelligence</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box} body{font-family:'Inter';background:#060912;color:#E5E7EB}
-header{position:sticky;top:0;z-index:20;background:#060912;border-bottom:1px solid #151A2A;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-family:'Montserrat';font-weight:800;font-size:20px;letter-spacing:-.5px}.logo span{color:#22C55E}
-.search{flex:1;max-width:400px;margin:0 20px}.search input{width:100%;padding:10px 14px;border-radius:10px;border:1px solid #1E293B;background:#0F1320;color:#fff}
-.grid{max-width:1400px;margin:0 auto;padding:24px 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.search{display:none}}
-.card{background:#0D111F;border:1px solid #1A2035;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px}
-.card:hover{border-color:#22C55E44}
-.top{display:flex;gap:14px}
-.photo{width:64px;height:64px;border-radius:12px;object-fit:cover;background:#151A2A;flex-shrink:0;border:1px solid #1E293B}
-.info{flex:1;min-width:0}.info h3{font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.info p{font-size:11px;opacity:.6;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.badges{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
-.badge{font-size:10px;padding:4px 8px;border-radius:20px;background:#151A2A;border:1px solid #1E293B;font-weight:600;letter-spacing:.3px}
-.badge-green{background:#22C55E14;color:#22C55E;border-color:#22C55E30}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.s{background:#080B16;border:1px solid #151A2A;border-radius:10px;padding:10px;text-align:center}
-.s span{font-size:10px;opacity:.5;letter-spacing:.5px;display:block;text-transform:uppercase}
-.s strong{font-size:14px;display:block;margin-top:2px;font-weight:700}
-.s.good strong{color:#22C55E}.s.warn strong{color:#FBBF24}
-.divider{height:1px;background:#151A2A}
-.transfer-box{background:#080B16;border-radius:10px;padding:10px;border:1px solid #151A2A;font-size:11px;line-height:1.6}
-.transfer-box b{color:#fff}.transfer-box span{opacity:.6}
-.footer-btns{display:flex;gap:8px}
-.btn{flex:1;padding:11px;border-radius:10px;font-weight:700;font-size:12px;border:none;cursor:pointer;text-align:center;text-decoration:none}
-.btn-green{background:#22C55E;color:#000}.btn-dark{background:#151A2A;color:#fff;border:1px solid #1E293B}
-/* MODAL SIMPLE */
-#modal{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:50;display:none;padding:16px;overflow:auto}
-.m-box{max-width:800px;margin:20px auto;background:#0D111F;border:1px solid #1E293B;border-radius:20px;overflow:hidden}
-.m-head{padding:20px;display:flex;gap:16px;align-items:center;border-bottom:1px solid #151A2A}
-.m-body{padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:700px){.m-body{grid-template-columns:1fr}}
-.m-card{background:#080B16;border:1px solid #151A2A;padding:14px;border-radius:12px}
-.m-card h5{font-size:11px;opacity:.5;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
-table{width:100%;border-collapse:collapse} th,td{padding:8px;font-size:12px;border-bottom:1px solid #151A2A;text-align:left} th{opacity:.5;font-size:10px}
-footer{border-top:1px solid #151A2A;margin-top:40px;padding:30px 20px;background:#080B16}
-.f{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:24px}
-@media(max-width:900px){.f{grid-template-columns:1fr 1fr}.f>div:first-child{grid-column:1/-1}}
-.f h5{font-size:12px;margin-bottom:10px}.f a,.f p{font-size:12px;opacity:.6;margin:5px 0;display:block;line-height:1.5}
+
+:root{
+    --bg:#050807;
+    --panel:#0b100e;
+    --panel2:#0f1613;
+    --panel3:#121b17;
+
+    --border:#1b2922;
+    --border2:#2a3d32;
+
+    --text:#f2f7f4;
+    --muted:#8c9b93;
+
+    --green:#35e27a;
+    --green-dark:#19b95b;
+
+    --gold:#f4c95d;
+    --red:#ff6464;
+    --blue:#61a8ff;
+
+    --shadow:0 25px 70px rgba(0,0,0,.45);
+
+    --radius:18px;
+}
+
+/* RESET */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        radial-gradient(
+            circle at 80% -10%,
+            rgba(53,226,122,.12),
+            transparent 35rem
+        ),
+        radial-gradient(
+            circle at -10% 30%,
+            rgba(53,226,122,.05),
+            transparent 30rem
+        ),
+        var(--bg);
+
+    color:var(--text);
+
+    font-family:Inter,Arial,sans-serif;
+
+    min-height:100vh;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+button:focus,
+input:focus,
+select:focus{
+    outline:2px solid rgba(53,226,122,.35);
+}
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#060a08;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#203127;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#2d4737;
+}
+
+/* HEADER */
+
+.header{
+
+    height:76px;
+
+    position:sticky;
+    top:0;
+
+    z-index:50;
+
+    display:flex;
+    align-items:center;
+
+    gap:20px;
+
+    padding:0 clamp(16px,4vw,55px);
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+    background:rgba(5,8,7,.82);
+
+    backdrop-filter:blur(18px);
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+    min-width:max-content;
+}
+
+.logo-mark{
+
+    width:39px;
+    height:39px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:11px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #49f487,
+            #0c9c49
+        );
+
+    color:#041008;
+
+    font-weight:900;
+
+    box-shadow:
+        0 0 30px rgba(53,226,122,.22);
+}
+
+.logo-text{
+
+    font-family:Montserrat;
+
+    font-weight:900;
+
+    font-size:16px;
+
+    letter-spacing:-.8px;
+}
+
+.logo-text span{
+    color:var(--green);
+}
+
+.nav{
+
+    display:flex;
+
+    gap:5px;
+
+    margin-left:12px;
+}
+
+.nav button{
+
+    border:0;
+
+    background:transparent;
+
+    color:var(--muted);
+
+    padding:9px 12px;
+
+    border-radius:9px;
+
+    font-size:12px;
+
+    font-weight:600;
+}
+
+.nav button:hover,
+.nav button.active{
+
+    color:#fff;
+
+    background:rgba(255,255,255,.05);
+}
+
+.header-tools{
+
+    margin-left:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+}
+
+.search-top{
+
+    width:min(300px,30vw);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:10px 12px;
+
+    border-radius:11px;
+
+    background:#0c120f;
+
+    border:1px solid var(--border);
+}
+
+.search-top svg{
+
+    width:16px;
+
+    color:var(--muted);
+}
+
+.search-top input{
+
+    width:100%;
+
+    border:0;
+
+    outline:0;
+
+    background:transparent;
+
+    color:#fff;
+
+    font-size:12px;
+}
+
+.search-top input::placeholder{
+    color:#64726b;
+}
+
+.pro-badge{
+
+    padding:9px 11px;
+
+    border-radius:9px;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    color:var(--gold);
+
+    background:rgba(244,201,93,.08);
+
+    border:1px solid rgba(244,201,93,.3);
+}
+
+.mobile-menu{
+
+    display:none;
+
+    padding:9px;
+
+    border:1px solid var(--border);
+
+    background:#0d1410;
+
+    color:#fff;
+
+    border-radius:9px;
+}
+
+/* HERO */
+
+.hero{
+
+    max-width:1500px;
+
+    margin:auto;
+
+    padding:
+        clamp(35px,6vw,75px)
+        clamp(16px,4vw,55px)
+        25px;
+}
+
+.hero-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    gap:30px;
+}
+
+.eyebrow{
+
+    color:var(--green);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+}
+
+.hero h1{
+
+    font-family:Montserrat;
+
+    font-size:clamp(30px,4vw,52px);
+
+    line-height:1.02;
+
+    letter-spacing:-2px;
+
+    margin-bottom:14px;
+}
+
+.hero h1 span{
+    color:var(--green);
+}
+
+.hero-description{
+
+    max-width:680px;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.75;
+}
+
+.hero-actions{
+
+    display:flex;
+
+    gap:9px;
+}
+
+.btn{
+
+    padding:11px 15px;
+
+    border-radius:10px;
+
+    border:1px solid var(--border2);
+
+    background:#0d1411;
+
+    color:#dce7e0;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-primary{
+
+    background:var(--green);
+
+    color:#041008;
+
+    border-color:var(--green);
+
+    box-shadow:
+        0 10px 30px rgba(53,226,122,.16);
+}
+
+/* STATISTICS */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:12px;
+
+    margin-top:30px;
+}
+
+.stat{
+
+    padding:18px;
+
+    border-radius:15px;
+
+    border:1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.015)
+        );
+}
+
+.stat-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:var(--muted);
+
+    font-size:10px;
+}
+
+.stat strong{
+
+    display:block;
+
+    font-family:Montserrat;
+
+    font-size:26px;
+
+    margin-top:8px;
+}
+
+.stat small{
+
+    color:var(--green);
+
+    font-size:9px;
+
+    font-weight:700;
+}
+
+/* CONTENT */
+
+.content{
+
+    max-width:1500px;
+
+    margin:auto;
+
+    padding:
+        10px
+        clamp(16px,4vw,55px)
+        70px;
+}
+
+/* FILTERS */
+
+.filters{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    padding:14px;
+
+    margin-bottom:22px;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    background:rgba(11,16,14,.78);
+}
+
+.filter{
+
+    position:relative;
+}
+
+.filter select{
+
+    appearance:none;
+
+    padding:
+        10px
+        35px
+        10px
+        12px;
+
+    border-radius:10px;
+
+    background:#0c120f;
+
+    color:#dce7e0;
+
+    border:1px solid var(--border);
+
+    font-size:11px;
+
+    cursor:pointer;
+}
+
+.filter::after{
+
+    content:"⌄";
+
+    position:absolute;
+
+    right:12px;
+
+    top:7px;
+
+    color:var(--muted);
+
+    pointer-events:none;
+}
+
+.results{
+
+    margin-left:auto;
+
+    color:var(--muted);
+
+    font-size:11px;
+}
+
+/* PLAYER GRID */
+
+.player-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:16px;
+}
+
+/* CARD */
+
+.player-card{
+
+    overflow:hidden;
+
+    position:relative;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            160deg,
+            #101713,
+            #090e0c
+        );
+
+    border:1px solid var(--border);
+
+    transition:.25s;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.13);
+}
+
+.player-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:#31533f;
+
+    box-shadow:var(--shadow);
+}
+
+.cover{
+
+    height:95px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            120deg,
+            #13251b,
+            #0b1110
+        );
+}
+
+.cover::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(53,226,122,.1),
+            transparent 45%,
+            rgba(0,0,0,.5)
+        );
+}
+
+.cover-pattern{
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:.18;
+
+    background-image:
+
+        linear-gradient(
+            30deg,
+            transparent 49%,
+            #35e27a 50%,
+            transparent 51%
+        ),
+
+        linear-gradient(
+            150deg,
+            transparent 49%,
+            #35e27a 50%,
+            transparent 51%
+        );
+
+    background-size:45px 45px;
+}
+
+.card-body{
+
+    padding:
+        0
+        15px
+        15px;
+}
+
+.identity{
+
+    display:flex;
+
+    align-items:end;
+
+    gap:12px;
+
+    margin-top:-30px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.avatar{
+
+    width:68px;
+    height:68px;
+
+    object-fit:cover;
+
+    border-radius:16px;
+
+    border:3px solid #0b100e;
+
+    background:#17221c;
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,.4);
+}
+
+.player-title{
+
+    padding-bottom:3px;
+
+    min-width:0;
+}
+
+.player-title h3{
+
+    font-family:Montserrat;
+
+    font-size:16px;
+
+    margin-bottom:3px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
+.player-title span{
+
+    color:var(--muted);
+
+    font-size:10px;
+}
+
+/* BADGES */
+
+.badges{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:5px;
+
+    margin:13px 0;
+}
+
+.badge{
+
+    padding:5px 7px;
+
+    border-radius:6px;
+
+    background:#151f1a;
+
+    border:1px solid var(--border);
+
+    color:#b9c9c0;
+
+    font-size:8px;
+
+    font-weight:800;
+}
+
+.badge.green{
+
+    color:var(--green);
+
+    background:rgba(53,226,122,.1);
+
+    border-color:rgba(53,226,122,.18);
+}
+
+.badge.gold{
+
+    color:var(--gold);
+
+    background:rgba(244,201,93,.08);
+
+    border-color:rgba(244,201,93,.16);
+}
+
+/* PLAYER DETAILS */
+
+.details{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:7px;
+
+    padding:11px 0;
+
+    border-top:1px solid var(--border);
+
+    border-bottom:1px solid var(--border);
+}
+
+.detail label{
+
+    display:block;
+
+    color:#68786f;
+
+    font-size:7px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.6px;
+
+    margin-bottom:4px;
+}
+
+.detail b{
+
+    color:#dbe5df;
+
+    font-size:10px;
+}
+
+/* STATS */
+
+.card-stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:8px;
+
+    padding:13px 0;
+}
+
+.card-stat{
+
+    padding:8px;
+
+    border-radius:9px;
+
+    background:#0a100d;
+
+    border:1px solid #16221c;
+}
+
+.card-stat label{
+
+    display:block;
+
+    color:#66766e;
+
+    font-size:7px;
+}
+
+.card-stat b{
+
+    display:block;
+
+    font-size:13px;
+
+    margin-top:4px;
+}
+
+/* TRANSFER */
+
+.transfer{
+
+    padding:11px;
+
+    border-radius:10px;
+
+    margin-bottom:12px;
+
+    background:#0a100d;
+
+    border:1px solid #1b2a22;
+}
+
+.transfer-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#63736b;
+
+    font-size:8px;
+
+    text-transform:uppercase;
+
+    font-weight:800;
+}
+
+.transfer-main{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:7px;
+
+    font-size:10px;
+}
+
+.transfer-main strong{
+    font-size:10px;
+}
+
+.arrow{
+
+    color:var(--green);
+
+    font-weight:900;
+}
+
+.fee{
+
+    margin-left:auto;
+
+    color:var(--green);
+
+    font-weight:800;
+}
+
+/* CARD BUTTONS */
+
+.card-actions{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:7px;
+}
+
+.card-actions button{
+
+    padding:9px;
+
+    border-radius:9px;
+
+    border:1px solid var(--border2);
+
+    background:#111914;
+
+    color:#cbd7d0;
+
+    font-size:9px;
+
+    font-weight:800;
+}
+
+.card-actions button:first-child{
+
+    background:var(--green);
+
+    color:#041008;
+
+    border-color:var(--green);
+}
+
+/* EMPTY */
+
+.empty{
+
+    display:none;
+
+    padding:70px 20px;
+
+    text-align:center;
+
+    border:1px dashed var(--border2);
+
+    border-radius:15px;
+
+    color:var(--muted);
+
+    line-height:1.8;
+}
+
+/* FOOTER */
+
+.footer{
+
+    border-top:1px solid var(--border);
+
+    padding:
+        35px
+        clamp(16px,4vw,55px);
+}
+
+.footer-inner{
+
+    max-width:1500px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+    color:#708078;
+
+    font-size:10px;
+
+    line-height:1.8;
+}
+
+.footer strong{
+    color:#cbd8d0;
+}
+
+.footer-links{
+
+    display:flex;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+}
+
+/* MODAL */
+
+.overlay{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:100;
+
+    padding:18px;
+
+    overflow:auto;
+
+    background:rgba(0,0,0,.76);
+
+    backdrop-filter:blur(10px);
+}
+
+.overlay.open{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+}
+
+.modal{
+
+    width:min(1080px,100%);
+
+    margin:20px auto;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    background:#0a0f0d;
+
+    border:1px solid #26362e;
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.65);
+}
+
+.modal-hero{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:20px 22px;
+
+    background:
+        linear-gradient(
+            110deg,
+            #101a14,
+            #0b100e
+        );
+
+    border-bottom:1px solid var(--border);
+}
+
+.modal-hero .avatar{
+
+    width:82px;
+
+    height:82px;
+}
+
+.modal-hero h2{
+
+    font-family:Montserrat;
+
+    font-size:24px;
+
+    margin-bottom:5px;
+}
+
+.modal-meta{
+
+    color:var(--muted);
+
+    font-size:10px;
+}
+
+.close{
+
+    margin-left:auto;
+
+    width:36px;
+
+    height:36px;
+
+    border-radius:9px;
+
+    border:1px solid var(--border);
+
+    background:#111813;
+
+    color:#fff;
+
+    font-size:18px;
+}
+
+.modal-body{
+    padding:20px;
+}
+
+/* EXTENDED */
+
+.extended{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(6,1fr);
+
+    gap:9px;
+
+    margin-bottom:18px;
+}
+
+.ext{
+
+    padding:12px;
+
+    border-radius:12px;
+
+    background:#0e1511;
+
+    border:1px solid var(--border);
+}
+
+.ext span{
+
+    color:#6d7d75;
+
+    font-size:8px;
+}
+
+.ext b{
+
+    display:block;
+
+    margin-top:5px;
+
+    font-size:15px;
+}
+
+/* PROFILE GRID */
+
+.profile-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.25fr .75fr;
+
+    gap:15px;
+}
+
+.section{
+
+    padding:15px;
+
+    margin-bottom:15px;
+
+    border-radius:15px;
+
+    background:#0d1410;
+
+    border:1px solid var(--border);
+}
+
+.section h4{
+
+    font-family:Montserrat;
+
+    font-size:12px;
+
+    margin-bottom:13px;
+}
+
+/* TABLE */
+
+.table-wrap{
+    overflow:auto;
+}
+
+table{
+
+    width:100%;
+
+    min-width:520px;
+
+    border-collapse:collapse;
+}
+
+th,
+td{
+
+    text-align:left;
+
+    padding:10px;
+
+    border-bottom:1px solid #18231e;
+
+    font-size:10px;
+}
+
+th{
+
+    color:#65766d;
+
+    font-size:8px;
+
+    text-transform:uppercase;
+}
+
+td{
+    color:#cbd6cf;
+}
+
+/* HEATMAP */
+
+.field{
+
+    aspect-ratio:3/2;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:10px;
+
+    border:1px solid #3a5546;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent 49.5%,
+            rgba(255,255,255,.35) 50%,
+            transparent 50.5%
+        ),
+
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 19.6%,
+            rgba(255,255,255,.06) 20% 20.3%
+        ),
+
+        #12351f;
+}
+
+.field::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:13%;
+
+    border:1px solid rgba(255,255,255,.25);
+}
+
+.field::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:13%;
+
+    aspect-ratio:1;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.25);
+
+    transform:translate(-50%,-50%);
+}
+
+.heat-dot{
+
+    width:11px;
+    height:11px;
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:var(--green);
+
+    box-shadow:
+        0 0 16px var(--green);
+
+    transform:translate(-50%,-50%);
+}
+
+/* INJURY */
+
+.timeline{
+
+    display:grid;
+
+    gap:9px;
+}
+
+.injury{
+
+    padding:10px;
+
+    border-left:3px solid var(--green);
+
+    border-radius:0 8px 8px 0;
+
+    background:#0a100d;
+
+    font-size:10px;
+}
+
+.injury.bad{
+    border-color:var(--red);
+}
+
+.injury b{
+
+    display:block;
+
+    margin-bottom:3px;
+}
+
+.injury span{
+    color:var(--muted);
+}
+
+.note{
+
+    color:#aebcb4;
+
+    font-size:10px;
+
+    line-height:1.8;
+}
+
+/* MOBILE */
+
+@media(max-width:1100px){
+
+    .player-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .profile-grid{
+        grid-template-columns:1fr;
+    }
+
+    .extended{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+}
+
+@media(max-width:760px){
+
+    .header{
+        height:68px;
+    }
+
+    .nav{
+        display:none;
+    }
+
+    .mobile-menu{
+        display:block;
+    }
+
+    .search-top{
+        width:auto;
+
+        flex:1;
+    }
+
+    .pro-badge{
+        display:none;
+    }
+
+    .hero-row{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+    }
+
+    .hero-actions{
+        width:100%;
+    }
+
+    .hero-actions .btn{
+        flex:1;
+    }
+
+    .stats{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .filters{
+
+        align-items:stretch;
+    }
+
+    .filter{
+
+        flex:1;
+
+        min-width:
+            calc(50% - 8px);
+    }
+
+    .filter select{
+        width:100%;
+    }
+
+    .results{
+
+        width:100%;
+
+        margin:2px 0 0;
+    }
+
+    .player-grid{
+        grid-template-columns:1fr;
+    }
+
+    .profile-grid{
+        grid-template-columns:1fr;
+    }
+
+    .extended{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .modal{
+        margin:0;
+    }
+
+    .overlay{
+        padding:8px;
+    }
+}
+
+@media(max-width:430px){
+
+    .logo-text{
+        font-size:12px;
+    }
+
+    .logo-mark{
+        width:34px;
+        height:34px;
+    }
+
+    .search-top input{
+        font-size:10px;
+    }
+
+    .hero h1{
+        font-size:31px;
+
+        letter-spacing:-1px;
+    }
+
+    .stats{
+        gap:8px;
+    }
+
+    .stat{
+        padding:13px;
+    }
+
+    .stat strong{
+        font-size:21px;
+    }
+
+    .filter{
+        min-width:100%;
+    }
+
+    .details{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .modal-hero{
+        padding:15px;
+    }
+
+    .modal-hero h2{
+        font-size:18px;
+    }
+
+    .modal-body{
+        padding:12px;
+    }
+}
+
 </style>
 </head>
+
 <body>
-<header>
-  <div class="logo">ZAM<span>SCOUT</span> MATRIX</div>
-  <div class="search"><input id="q" placeholder="Search player, club, position..." oninput="filterP()"></div>
-  <div style="font-size:11px;opacity:.6;border:1px solid #1E293B;padding:6px 12px;border-radius:20px">PRO AGENCY • LUSAKA</div>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header">
+
+    <a href="#" class="logo">
+
+        <div class="logo-mark">
+            ZS
+        </div>
+
+        <div class="logo-text">
+            ZAM <span>SCOUT</span> MATRIX
+        </div>
+
+    </a>
+
+    <nav class="nav">
+
+        <button class="active">
+            Players
+        </button>
+
+        <button>
+            Transfers
+        </button>
+
+        <button>
+            Reports
+        </button>
+
+    </nav>
+
+    <div class="header-tools">
+
+        <label class="search-top">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+            >
+
+                <circle
+                    cx="11"
+                    cy="11"
+                    r="7"
+                />
+
+                <path
+                    d="m20 20-4-4"
+                />
+
+            </svg>
+
+            <input
+                id="search"
+                type="text"
+                placeholder="Search player, club..."
+            >
+
+        </label>
+
+        <span class="pro-badge">
+            PRO SCOUT
+        </span>
+
+        <button class="mobile-menu">
+            ☰
+        </button>
+
+    </div>
+
 </header>
 
-<div style="max-width:1400px;margin:0 auto;padding:20px 20px 0"><h1 style="font-family:Montserrat;font-size:28px;letter-spacing:-1px">Verified Zambian Players - Every Stat On Card</h1><p style="opacity:.6;font-size:13px;margin-top:6px">Dark professional scouting agency. No clicks needed to see value. Profile picture, minutes, cards, transfer trail visible.</p></div>
 
-<div class="grid" id="grid"></div>
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-<div id="modal" onclick="if(event.target==this)closeM()"><div class="m-box"><div class="m-head"><img id="mPhoto" style="width:72px;height:72px;border-radius:14px;object-fit:cover" src=""><div><h2 id="mName">Player</h2><p id="mMeta" style="opacity:.6;font-size:12px"></p></div><button onclick="closeM()" style="margin-left:auto;background:#151A2A;border:none;color:#fff;width:36px;height:36px;border-radius:50%">✕</button></div><div class="m-body"><div class="m-card"><h5>Discipline & Minutes</h5><div id="mDisc"></div></div><div class="m-card"><h5>Physical & Contract</h5><div id="mPhys"></div></div><div class="m-card" style="grid-column:1/-1"><h5>Transfer History - Till Now</h5><div id="mTrans"></div></div><div class="m-card" style="grid-column:1/-1"><h5>Full Season Timeline</h5><table id="mTime"></table></div></div></div></div>
+<section class="hero">
 
-<footer><div class="f"><div><div class="logo">ZAM<span>SCOUT</span> MATRIX</div><p style="margin-top:8px;max-width:340px">Professional football data agency based in 15 Miles, Lusaka. We verify every Zambian player's data from U17 to Senior. Helping scouts find talent without YouTube highlights.</p><p style="margin-top:10px">Email: scouts@zamscoutmatrix.com<br>WhatsApp: +260 97 000 0000<br>Location: 15 Miles, Lusaka, Zambia</p></div><div><h5>For Scouts</h5><a>How it Works</a><a>Verification Process</a><a>Request Full Report</a></div><div><h5>Policies</h5><a>Data Accuracy Policy</a><a>Player Consent & Privacy</a><a>Transfer Fee Disclaimer</a><a>FAZ Compliance</a></div><div><h5>Contact</h5><a>Kitwe Office</a><a>Lusaka HQ</a><a>Terms • Privacy</a></div></div><div style="max-width:1400px;margin:20px auto 0;border-top:1px solid #151A2A;padding-top:16px;display:flex;justify-content:space-between;font-size:11px;opacity:.5"><span>© 2026 ZAM SCOUT MATRIX LTD</span><span>Built for Zambian Football</span></div></footer>
+    <div class="hero-row">
+
+        <div>
+
+            <div class="eyebrow">
+                Zambia • Football Intelligence
+            </div>
+
+            <h1>
+                Discover the next
+                <br>
+                <span>generation.</span>
+            </h1>
+
+            <p class="hero-description">
+
+                A professional scouting intelligence platform
+                built to make verified Zambian football data
+                easier to discover, compare and act on —
+                from local academies to the global stage.
+
+            </p>
+
+        </div>
+
+        <div class="hero-actions">
+
+            <button
+                class="btn"
+                onclick="resetFilters()"
+            >
+                Reset filters
+            </button>
+
+            <button
+                class="btn btn-primary"
+                onclick="exportReport()"
+            >
+                Export report
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- DASHBOARD STATS -->
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <div class="stat-top">
+                Players tracked
+                <span>●</span>
+            </div>
+
+            <strong id="totalPlayers">
+                0
+            </strong>
+
+            <small>
+                LIVE DATABASE
+            </small>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-top">
+                Clubs covered
+                <span>●</span>
+            </div>
+
+            <strong id="totalClubs">
+                0
+            </strong>
+
+            <small>
+                LOCAL + GLOBAL
+            </small>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-top">
+                Profiles verified
+                <span>●</span>
+            </div>
+
+            <strong id="verified">
+                0%
+            </strong>
+
+            <small>
+                DATA QUALITY
+            </small>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-top">
+                Average rating
+                <span>●</span>
+            </div>
+
+            <strong id="avgRating">
+                0
+            </strong>
+
+            <small>
+                SCOUT INDEX
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTENT
+========================================================= -->
+
+<main class="content">
+
+    <!-- FILTERS -->
+
+    <div class="filters">
+
+        <div class="filter">
+
+            <select id="position">
+
+                <option value="">
+                    All positions
+                </option>
+
+                <option>GK</option>
+                <option>CB</option>
+                <option>LB</option>
+                <option>RB</option>
+                <option>CM</option>
+                <option>AM</option>
+                <option>LW</option>
+                <option>RW</option>
+                <option>ST</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="filter">
+
+            <select id="age">
+
+                <option value="">
+                    All ages
+                </option>
+
+                <option value="u20">
+                    U20
+                </option>
+
+                <option value="20-25">
+                    20–25
+                </option>
+
+                <option value="25+">
+                    25+
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="filter">
+
+            <select id="level">
+
+                <option value="">
+                    All levels
+                </option>
+
+                <option>
+                    Senior
+                </option>
+
+                <option>
+                    U23
+                </option>
+
+                <option>
+                    U20
+                </option>
+
+                <option>
+                    U17
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="filter">
+
+            <select id="value">
+
+                <option value="">
+                    All values
+                </option>
+
+                <option value="low">
+                    Under €500K
+                </option>
+
+                <option value="mid">
+                    €500K–€5M
+                </option>
+
+                <option value="high">
+                    Over €5M
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="results">
+
+            <span id="resultCount">
+                0
+            </span>
+
+            profiles
+
+        </div>
+
+    </div>
+
+
+    <!-- PLAYER GRID -->
+
+    <div
+        id="playerGrid"
+        class="player-grid"
+    ></div>
+
+
+    <!-- EMPTY -->
+
+    <div
+        id="empty"
+        class="empty"
+    >
+
+        No players match your current filters.
+
+        <br>
+
+        <button
+            class="btn"
+            style="margin-top:12px"
+            onclick="resetFilters()"
+        >
+            Clear filters
+        </button>
+
+    </div>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <div class="footer-inner">
+
+        <div>
+
+            <strong>
+                ZAM SCOUT MATRIX
+            </strong>
+
+            <br>
+
+            Independent football data
+            & scouting intelligence.
+
+            <br>
+
+            15 Miles • Lusaka, Zambia
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <span>
+                FAZ Compliance
+            </span>
+
+            <span>
+                Privacy
+            </span>
+
+            <span>
+                Data Policy
+            </span>
+
+            <span>
+                Contact
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     PLAYER PROFILE MODAL
+========================================================= -->
+
+<div
+    id="overlay"
+    class="overlay"
+>
+
+    <div
+        id="modal"
+        class="modal"
+    ></div>
+
+</div>
+
 
 <script>
-const players=[
-{name:"Patson Daka",pos:"ST",club:"Leicester City",level:"Senior",nationality:"Zambia National Team",age:27,foot:"Right",height:"183cm",contract:"2026",image:"https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=200",value:"€4.2M",apps:32,mins:2410,goals:14,assists:5,yellow:3,red:0,pass:"78%",rating:7.8,transfers:[{from:"Kafue Celtic",to:"RB Salzburg",type:"Permanent",fee:"€250K",date:"2017"},{from:"Salzburg",to:"Leicester",type:"Permanent",fee:"€30M",date:"2021 - Now"}]},
-{name:"Mwila Kangwa",pos:"LW",club:"Zanaco FC",level:"U23",nationality:"Zambia U23",age:21,foot:"Left",height:"176cm",contract:"2025",image:"https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=200",value:"€180K",apps:24,mins:1890,goals:9,assists:7,yellow:5,red:1,pass:"81%",rating:6.9,transfers:[{from:"Chunga Youth",to:"Zanaco Youth",type:"Free",fee:"Free",date:"2022"},{from:"Zanaco Youth",to:"Zanaco",type:"Promotion",fee:"-",date:"2024 - Now"}]},
-{name:"Joseph Chanda",pos:"CB",club:"Kabwe Youth",level:"Youth",nationality:"Zambia U17",age:18,foot:"Right",height:"188cm",contract:"2026",image:"https://images.unsplash.com/photo-1560272564-c83b66a59d0a?w=200",value:"€25K",apps:12,mins:1080,goals:1,assists:0,yellow:2,red:0,pass:"84%",rating:6.5,transfers:[{from:"Kabanana FC",to:"Kabwe Youth",type:"Loan",fee:"K5,000",date:"2024 - Now"}]},
-{name:"Enock Sakala",pos:"CM",club:"Power Dynamos",level:"Senior",nationality:"Zambia",age:23,foot:"Right",height:"180cm",contract:"2025",image:"https://images.unsplash.com/photo-1553778263-73a83e0f2b0e?w=200",value:"€95K",apps:28,mins:2240,goals:3,assists:8,yellow:6,red:0,pass:"87%",rating:7.2,transfers:[{from:"Kitwe Academy",to:"Power Dynamos",type:"Permanent",fee:"K20,000",date:"2021 - Now"}]}
+
+/* =========================================================
+   GOOGLE SHEETS
+========================================================= */
+
+/*
+    Later replace this with your published
+    Google Sheets CSV URL.
+
+    Example:
+
+    const SHEET_URL =
+    "https://docs.google.com/spreadsheets/d/XXXX/export?format=csv";
+*/
+
+const SHEET_URL = "";
+
+
+/* =========================================================
+   SAMPLE DATABASE
+========================================================= */
+
+const players = [
+
+{
+    name:"Patson Daka",
+    pos:"ST",
+    club:"Leicester City",
+    level:"Senior",
+    nationality:"Zambia",
+
+    age:27,
+    foot:"Right",
+    height:"183cm",
+    weight:"76kg",
+    contract:"2026",
+
+    value:"€4.2M",
+    valueNum:4200000,
+
+    apps:32,
+    mins:2410,
+    goals:14,
+    assists:5,
+
+    yellow:3,
+    red:0,
+
+    pass:"78%",
+    rating:7.8,
+
+    distance:"9.8km",
+    sprints:32,
+    duels:"58%",
+    aerial:"61%",
+    keyPasses:1.8,
+    shotsOnTarget:"48%",
+
+    from1:"Salzburg",
+    to1:"Leicester",
+    type1:"Permanent",
+    fee1:"€30M",
+    date1:"2021",
+
+    verified:true,
+
+    seasons:[
+        ["2025/26","Leicester","32","14","5","7.8"],
+        ["2024/25","Leicester","28","11","4","7.5"],
+        ["2023/24","Leicester","30","12","3","7.6"]
+    ]
+},
+
+{
+    name:"Fashion Sakala",
+    pos:"RW",
+    club:"Al-Fayha",
+    level:"Senior",
+    nationality:"Zambia",
+
+    age:29,
+    foot:"Right",
+    height:"178cm",
+    weight:"75kg",
+    contract:"2027",
+
+    value:"€5.0M",
+    valueNum:5000000,
+
+    apps:29,
+    mins:2260,
+    goals:12,
+    assists:7,
+
+    yellow:2,
+    red:0,
+
+    pass:"76%",
+    rating:7.7,
+
+    distance:"10.1km",
+    sprints:39,
+    duels:"63%",
+    aerial:"44%",
+    keyPasses:2.1,
+    shotsOnTarget:"51%",
+
+    from1:"Rangers",
+    to1:"Al-Fayha",
+    type1:"Permanent",
+    fee1:"€5M",
+    date1:"2023",
+
+    verified:true,
+
+    seasons:[
+        ["2025/26","Al-Fayha","29","12","7","7.7"],
+        ["2024/25","Al-Fayha","31","15","5","7.9"],
+        ["2023/24","Al-Fayha","25","9","6","7.4"]
+    ]
+},
+
+{
+    name:"Miguel Chunga",
+    pos:"GK",
+    club:"Power Dynamos",
+    level:"Senior",
+    nationality:"Zambia",
+
+    age:31,
+    foot:"Right",
+    height:"187cm",
+    weight:"82kg",
+    contract:"2027",
+
+    value:"€300K",
+    valueNum:300000,
+
+    apps:25,
+    mins:2250,
+    goals:0,
+    assists:0,
+
+    yellow:1,
+    red:0,
+
+    pass:"71%",
+    rating:7.4,
+
+    distance:"4.8km",
+    sprints:8,
+    duels:"70%",
+    aerial:"78%",
+    keyPasses:.2,
+    shotsOnTarget:"—",
+
+    from1:"Kabwe Warriors",
+    to1:"Power Dynamos",
+    type1:"Permanent",
+    fee1:"€120K",
+    date1:"2024",
+
+    verified:true,
+
+    seasons:[
+        ["2025/26","Power Dynamos","25","0","0","7.4"],
+        ["2024/25","Power Dynamos","22","0","0","7.2"]
+    ]
+},
+
+{
+    name:"Kings Kangwa",
+    pos:"AM",
+    club:"Hapoel Be'er Sheva",
+    level:"Senior",
+    nationality:"Zambia",
+
+    age:27,
+    foot:"Left",
+    height:"176cm",
+    weight:"68kg",
+    contract:"2027",
+
+    value:"€3.1M",
+    valueNum:3100000,
+
+    apps:27,
+    mins:2010,
+    goals:8,
+    assists:6,
+
+    yellow:4,
+    red:0,
+
+    pass:"83%",
+    rating:7.9,
+
+    distance:"10.5km",
+    sprints:36,
+    duels:"57%",
+    aerial:"38%",
+    keyPasses:2.8,
+    shotsOnTarget:"55%",
+
+    from1:"Red Star",
+    to1:"Hapoel Be'er Sheva",
+    type1:"Permanent",
+    fee1:"€1.5M",
+    date1:"2024",
+
+    verified:false,
+
+    seasons:[
+        ["2025/26","Hapoel","27","8","6","7.9"],
+        ["2024/25","Hapoel","24","7","4","7.6"]
+    ]
+},
+
+{
+    name:"Joseph Banda",
+    pos:"CM",
+    club:"Red Arrows",
+    level:"Senior",
+    nationality:"Zambia",
+
+    age:23,
+    foot:"Right",
+    height:"181cm",
+    weight:"73kg",
+    contract:"2028",
+
+    value:"€650K",
+    valueNum:650000,
+
+    apps:30,
+    mins:2520,
+    goals:5,
+    assists:9,
+
+    yellow:5,
+    red:0,
+
+    pass:"88%",
+    rating:7.6,
+
+    distance:"11.2km",
+    sprints:28,
+    duels:"64%",
+    aerial:"52%",
+    keyPasses:3.2,
+    shotsOnTarget:"43%",
+
+    from1:"Kabwe Warriors",
+    to1:"Red Arrows",
+    type1:"Permanent",
+    fee1:"€180K",
+    date1:"2023",
+
+    verified:true,
+
+    seasons:[
+        ["2025/26","Red Arrows","30","5","9","7.6"],
+        ["2024/25","Red Arrows","27","4","8","7.4"]
+    ]
+},
+
+{
+    name:"Lameck Banda",
+    pos:"LW",
+    club:"Lecce",
+    level:"Senior",
+    nationality:"Zambia",
+
+    age:25,
+    foot:"Left",
+    height:"175cm",
+    weight:"67kg",
+    contract:"2028",
+
+    value:"€6.0M",
+    valueNum:6000000,
+
+    apps:24,
+    mins:1860,
+    goals:6,
+    assists:5,
+
+    yellow:2,
+    red:0,
+
+    pass:"79%",
+    rating:7.5,
+
+    distance:"9.7km",
+    sprints:41,
+    duels:"55%",
+    aerial:"31%",
+    keyPasses:2.4,
+    shotsOnTarget:"47%",
+
+    from1:"Arsenal Tula",
+    to1:"Lecce",
+    type1:"Permanent",
+    fee1:"€1.7M",
+    date1:"2022",
+
+    verified:true,
+
+    seasons:[
+        ["2025/26","Lecce","24","6","5","7.5"],
+        ["2024/25","Lecce","26","7","6","7.6"]
+    ]
+}
+
 ];
-function render(list){
- document.getElementById('grid').innerHTML=list.map((p,i)=>`
-  <div class="card">
-    <div class="top">
-      <img class="photo" src="${p.image}" onerror="this.src='https://via.placeholder.com/64?text=${p.pos}'">
-      <div class="info">
-        <h3>${p.name} • ${p.pos}</h3>
-        <p>${p.club} • ${p.age}y • ${p.foot} • ${p.height} • Contract: ${p.contract}</p>
-        <div class="badges"><span class="badge badge-green">${p.level}</span><span class="badge">${p.nationality}</span><span class="badge badge-green">${p.value}</span><span class="badge">★ ${p.rating}</span></div>
-      </div>
-    </div>
-    <div class="stats">
-      <div class="s"><span>Apps</span><strong>${p.apps}</strong></div>
-      <div class="s"><span>Mins</span><strong>${p.mins}'</strong></div>
-      <div class="s good"><span>G/A</span><strong>${p.goals}/${p.assists}</strong></div>
-      <div class="s ${p.yellow>4?'warn':''}"><span>Cards</span><strong>${p.yellow}Y ${p.red}R</strong></div>
-    </div>
-    <div class="stats">
-      <div class="s"><span>Pass %</span><strong>${p.pass}</strong></div>
-      <div class="s"><span>Rating</span><strong>${p.rating}</strong></div>
-      <div class="s"><span>Foot</span><strong>${p.foot}</strong></div>
-      <div class="s"><span>Height</span><strong>${p.height}</strong></div>
-    </div>
-    <div class="divider"></div>
-    <div class="transfer-box">
-      ${p.transfers.map(t=>`<div><b>${t.from} → ${t.to}</b><br><span>Type: ${t.type} • Fee: ${t.fee} • ${t.date}</span></div>`).join('<div class="divider" style="margin:6px 0"></div>')}
-    </div>
-    <div class="footer-btns"><button class="btn btn-dark" onclick="openM(${players.indexOf(p)})">Full Profile</button><button class="btn btn-green" onclick="alert('Agent contact request sent for ${p.name}')">Contact Agent</button></div>
-  </div>`).join('');
+
+
+/* =========================================================
+   FALLBACK PLAYER IMAGE
+========================================================= */
+
+function fallbackImage(name){
+
+    const initials = name
+        .split(" ")
+        .map(word => word[0])
+        .slice(0,2)
+        .join("");
+
+    const svg = `
+
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="160"
+        height="160"
+    >
+
+        <rect
+            width="100%"
+            height="100%"
+            fill="#16231c"
+        />
+
+        <circle
+            cx="80"
+            cy="61"
+            r="30"
+            fill="#294333"
+        />
+
+        <path
+            d="M28 148
+               C34 109 55 90 80 90
+               C105 90 126 109 132 148"
+            fill="#294333"
+        />
+
+        <text
+            x="80"
+            y="24"
+            text-anchor="middle"
+            fill="#35e27a"
+            font-family="Arial"
+            font-size="13"
+            font-weight="bold"
+        >
+            ${initials}
+        </text>
+
+    </svg>
+    `;
+
+    return "data:image/svg+xml;charset=UTF-8," +
+        encodeURIComponent(svg);
 }
-function openM(idx){
- const p=players[idx];
- document.getElementById('mPhoto').src=p.image; document.getElementById('mName').innerText=p.name+' - '+p.pos;
- document.getElementById('mMeta').innerText=`${p.club} • ${p.nationality} • ${p.age}y • ${p.value}`;
- document.getElementById('mDisc').innerHTML=`<div class="row" style="display:flex;justify-content:space-between;background:#080B16;padding:8px;border-radius:8px;margin-top:6px;font-size:12px"><span>Yellow</span><strong>${p.yellow}</strong></div><div class="row" style="display:flex;justify-content:space-between;background:#080B16;padding:8px;border-radius:8px;margin-top:6px;font-size:12px"><span>Red</span><strong>${p.red}</strong></div><div class="row" style="display:flex;justify-content:space-between;background:#080B16;padding:8px;border-radius:8px;margin-top:6px;font-size:12px"><span>Minutes</span><strong>${p.mins}'</strong></div>`;
- document.getElementById('mPhys').innerHTML=`<div class="row" style="display:flex;justify-content:space-between;background:#080B16;padding:8px;border-radius:8px;margin-top:6px;font-size:12px"><span>Foot</span><strong>${p.foot}</strong></div><div class="row" style="display:flex;justify-content:space-between;background:#080B16;padding:8px;border-radius:8px;margin-top:6px;font-size:12px"><span>Height</span><strong>${p.height}</strong></div><div class="row" style="display:flex;justify-content:space-between;background:#080B16;padding:8px;border-radius:8px;margin-top:6px;font-size:12px"><span>Contract</span><strong>${p.contract}</strong></div>`;
- document.getElementById('mTrans').innerHTML=p.transfers.map(t=>`<div style="background:#080B16;padding:10px;border-radius:10px;margin:6px 0;border-left:3px solid #22C55E"><b>${t.from} → ${t.to}</b><br><span style="opacity:.6;font-size:11px">${t.type} • ${t.fee} • ${t.date}</span></div>`).join('');
- document.getElementById('mTime').innerHTML='<tr><th>Season</th><th>Level</th><th>Apps</th><th>G/A</th></tr><tr><td>2024/25</td><td>'+p.level+'</td><td>'+p.apps+'</td><td>'+p.goals+'/'+p.assists+'</td></tr>';
- document.getElementById('modal').style.display='block';
+
+
+/* =========================================================
+   PLAYER CARD
+========================================================= */
+
+function createPlayerCard(player,index){
+
+return `
+
+<article class="player-card">
+
+    <div class="cover">
+
+        <div class="cover-pattern"></div>
+
+    </div>
+
+
+    <div class="card-body">
+
+
+        <div class="identity">
+
+            <img
+                class="avatar"
+
+                src="${player.image || fallbackImage(player.name)}"
+
+                onerror="
+                    this.src='${fallbackImage(player.name)}'
+                "
+            >
+
+            <div class="player-title">
+
+                <h3>
+                    ${player.name}
+                </h3>
+
+                <span>
+                    ${player.club}
+                    •
+                    ${player.nationality}
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="badges">
+
+            <span class="badge green">
+                ${player.level}
+            </span>
+
+            <span class="badge">
+                ${player.pos}
+            </span>
+
+            <span class="badge gold">
+                ${player.value}
+            </span>
+
+            <span class="badge">
+                ★ ${player.rating}
+            </span>
+
+            ${
+                player.verified
+                ?
+                `
+                <span class="badge green">
+                    ✓ VERIFIED
+                </span>
+                `
+                :
+                ""
+            }
+
+        </div>
+
+
+        <!-- PLAYER INFORMATION -->
+
+        <div class="details">
+
+            <div class="detail">
+
+                <label>
+                    Age
+                </label>
+
+                <b>
+                    ${player.age}
+                </b>
+
+            </div>
+
+
+            <div class="detail">
+
+                <label>
+                    Foot
+                </label>
+
+                <b>
+                    ${player.foot}
+                </b>
+
+            </div>
+
+
+            <div class="detail">
+
+                <label>
+                    Height
+                </label>
+
+                <b>
+                    ${player.height}
+                </b>
+
+            </div>
+
+
+            <div class="detail">
+
+                <label>
+                    Contract
+                </label>
+
+                <b>
+                    ${player.contract}
+                </b>
+
+            </div>
+
+        </div>
+
+
+        <!-- MATCH STATS -->
+
+        <div class="card-stats">
+
+
+            <div class="card-stat">
+
+                <label>
+                    APPEARANCES
+                </label>
+
+                <b>
+                    ${player.apps}
+                </b>
+
+            </div>
+
+
+            <div class="card-stat">
+
+                <label>
+                    MINUTES
+                </label>
+
+                <b>
+                    ${player.mins.toLocaleString()}
+                </b>
+
+            </div>
+
+
+            <div class="card-stat">
+
+                <label>
+                    GOALS / AST
+                </label>
+
+                <b>
+                    ${player.goals}
+                    /
+                    ${player.assists}
+                </b>
+
+            </div>
+
+
+            <div class="card-stat">
+
+                <label>
+                    CARDS
+                </label>
+
+                <b>
+                    ${player.yellow}Y /
+                    ${player.red}R
+                </b>
+
+            </div>
+
+
+            <div class="card-stat">
+
+                <label>
+                    PASSING
+                </label>
+
+                <b>
+                    ${player.pass}
+                </b>
+
+            </div>
+
+
+            <div class="card-stat">
+
+                <label>
+                    RATING
+                </label>
+
+                <b>
+                    ${player.rating}
+                </b>
+
+            </div>
+
+        </div>
+
+
+        <!-- TRANSFER -->
+
+        <div class="transfer">
+
+            <div class="transfer-head">
+
+                <span>
+                    Latest transfer
+                </span>
+
+                <span>
+                    ${player.date1}
+                </span>
+
+            </div>
+
+
+            <div class="transfer-main">
+
+                <strong>
+                    ${player.from1}
+                </strong>
+
+                <span class="arrow">
+                    →
+                </span>
+
+                <strong>
+                    ${player.to1}
+                </strong>
+
+                <span class="fee">
+                    ${player.fee1}
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div class="card-actions">
+
+            <button
+                onclick="openProfile(${index})"
+            >
+                FULL PROFILE
+            </button>
+
+            <button
+                onclick="contactAgent('${player.name}')"
+            >
+                CONTACT AGENT
+            </button>
+
+        </div>
+
+    </div>
+
+</article>
+
+`;
+
 }
-function closeM(){document.getElementById('modal').style.display='none'}
-function filterP(){const q=document.getElementById('q').value.toLowerCase();render(players.filter(p=>p.name.toLowerCase().includes(q)||p.club.toLowerCase().includes(q)||p.pos.toLowerCase().includes(q)))}
-render(players);
+
+
+/* =========================================================
+   RENDER PLAYERS
+========================================================= */
+
+function renderPlayers(){
+
+    const search =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+    const position =
+        document
+        .getElementById("position")
+        .value;
+
+    const age =
+        document
+        .getElementById("age")
+        .value;
+
+    const level =
+        document
+        .getElementById("level")
+        .value;
+
+    const value =
+        document
+        .getElementById("value")
+        .value;
+
+
+    const filtered =
+        players.filter(player => {
+
+            const searchable = `
+
+                ${player.name}
+                ${player.club}
+                ${player.pos}
+
+            `.toLowerCase();
+
+
+            let ageMatch = true;
+
+            if(age === "u20"){
+                ageMatch = player.age < 20;
+            }
+
+            if(age === "20-25"){
+                ageMatch =
+                    player.age >= 20 &&
+                    player.age <= 25;
+            }
+
+            if(age === "25+"){
+                ageMatch =
+                    player.age > 25;
+            }
+
+
+            let valueMatch = true;
+
+            if(value === "low"){
+                valueMatch =
+                    player.valueNum < 500000;
+            }
+
+            if(value === "mid"){
+                valueMatch =
+                    player.valueNum >= 500000 &&
+                    player.valueNum <= 5000000;
+            }
+
+            if(value === "high"){
+                valueMatch =
+                    player.valueNum > 5000000;
+            }
+
+
+            return (
+
+                searchable.includes(search)
+
+                &&
+
+                (!position ||
+                 player.pos === position)
+
+                &&
+
+                ageMatch
+
+                &&
+
+                (!level ||
+                 player.level === level)
+
+                &&
+
+                valueMatch
+
+            );
+
+        });
+
+
+    const grid =
+        document.getElementById("playerGrid");
+
+    const empty =
+        document.getElementById("empty");
+
+
+    grid.innerHTML =
+        filtered
+        .map(player =>
+            createPlayerCard(
+                player,
+                players.indexOf(player)
+            )
+        )
+        .join("");
+
+
+    document.getElementById(
+        "resultCount"
+    ).textContent =
+        filtered.length;
+
+
+    empty.style.display =
+        filtered.length
+        ?
+        "none"
+        :
+        "block";
+}
+
+
+/* =========================================================
+   DASHBOARD STATISTICS
+========================================================= */
+
+function updateDashboardStats(){
+
+    document.getElementById(
+        "totalPlayers"
+    ).textContent =
+        players.length;
+
+
+    document.getElementById(
+        "totalClubs"
+    ).textContent =
+        new Set(
+            players.map(
+                player => player.club
+            )
+        ).size;
+
+
+    const verified =
+        players.filter(
+            player => player.verified
+        ).length;
+
+
+    document.getElementById(
+        "verified"
+    ).textContent =
+        Math.round(
+            verified / players.length * 100
+        ) + "%";
+
+
+    const rating =
+        players.reduce(
+            (total,player) =>
+                total + player.rating,
+            0
+        )
+        /
+        players.length;
+
+
+    document.getElementById(
+        "avgRating"
+    ).textContent =
+        rating.toFixed(1);
+}
+
+
+/* =========================================================
+   PROFILE MODAL
+========================================================= */
+
+function openProfile(index){
+
+    const player =
+        players[index];
+
+
+    const modal =
+        document.getElementById("modal");
+
+
+    modal.innerHTML = `
+
+    <div class="modal-hero">
+
+        <img
+            class="avatar"
+
+            src="${
+                player.image ||
+                fallbackImage(player.name)
+            }"
+        >
+
+
+        <div>
+
+            <div
+                class="eyebrow"
+                style="margin:0 0 4px"
+            >
+                ${player.level}
+                •
+                ${player.pos}
+            </div>
+
+
+            <h2>
+                ${player.name}
+            </h2>
+
+
+            <div class="modal-meta">
+
+                ${player.club}
+
+                •
+
+                ${player.age} years
+
+                •
+
+                ${player.foot} foot
+
+                •
+
+                ${player.height}
+
+                •
+
+                ${player.value}
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="close"
+            onclick="closeProfile()"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="modal-body">
+
+
+        <!-- EXTENDED STATS -->
+
+        <div class="extended">
+
+            <div class="ext">
+                <span>Distance</span>
+                <b>${player.distance}</b>
+            </div>
+
+            <div class="ext">
+                <span>Sprints</span>
+                <b>${player.sprints}</b>
+            </div>
+
+            <div class="ext">
+                <span>Duels won</span>
+                <b>${player.duels}</b>
+            </div>
+
+            <div class="ext">
+                <span>Aerial won</span>
+                <b>${player.aerial}</b>
+            </div>
+
+            <div class="ext">
+                <span>Key passes</span>
+                <b>${player.keyPasses}</b>
+            </div>
+
+            <div class="ext">
+                <span>Shot accuracy</span>
+                <b>${player.shotsOnTarget}</b>
+            </div>
+
+        </div>
+
+
+        <div class="profile-grid">
+
+
+            <!-- LEFT -->
+
+            <div>
+
+
+                <!-- SEASONS -->
+
+                <div class="section">
+
+                    <h4>
+                        Season performance
+                    </h4>
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Season
+                                    </th>
+
+                                    <th>
+                                        Club
+                                    </th>
+
+                                    <th>
+                                        Apps
+                                    </th>
+
+                                    <th>
+                                        Goals
+                                    </th>
+
+                                    <th>
+                                        Ast
+                                    </th>
+
+                                    <th>
+                                        Rating
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                ${
+                                    player.seasons
+                                    .map(
+                                        season => `
+
+                                        <tr>
+
+                                            ${
+                                                season
+                                                .map(
+                                                    item =>
+                                                    `<td>${item}</td>`
+                                                )
+                                                .join("")
+                                            }
+
+                                        </tr>
+
+                                        `
+                                    )
+                                    .join("")
+                                }
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HEATMAP -->
+
+                <div class="section">
+
+                    <h4>
+                        Player heatmap
+                    </h4>
+
+
+                    <div class="field">
+
+                        <i
+                            class="heat-dot"
+                            style="left:34%;top:30%"
+                        ></i>
+
+                        <i
+                            class="heat-dot"
+                            style="left:45%;top:38%"
+                        ></i>
+
+                        <i
+                            class="heat-dot"
+                            style="left:58%;top:48%"
+                        ></i>
+
+                        <i
+                            class="heat-dot"
+                            style="left:68%;top:55%"
+                        ></i>
+
+                        <i
+                            class="heat-dot"
+                            style="left:76%;top:42%"
+                        ></i>
+
+                        <i
+                            class="heat-dot"
+                            style="left:53%;top:65%"
+                        ></i>
+
+                        <i
+                            class="heat-dot"
+                            style="left:82%;top:64%"
+                        ></i>
+
+                        <i
+                            class="heat-dot"
+                            style="left:40%;top:58%"
+                        ></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT -->
+
+            <div>
+
+
+                <!-- INJURIES -->
+
+                <div class="section">
+
+                    <h4>
+                        Injury history
+                    </h4>
+
+
+                    <div class="timeline">
+
+                        <div class="injury">
+
+                            <b>
+                                No major recorded injury
+                            </b>
+
+                            <span>
+                                Current status:
+                                available
+                            </span>
+
+                        </div>
+
+
+                        <div class="injury">
+
+                            <b>
+                                Data review
+                            </b>
+
+                            <span>
+                                Medical information should
+                                be independently verified.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ADVANCED METRICS -->
+
+                <div class="section">
+
+                    <h4>
+                        Advanced metrics
+                    </h4>
+
+
+                    <div
+                        class="details"
+                        style="border:0"
+                    >
+
+                        <div class="detail">
+
+                            <label>
+                                Interceptions
+                            </label>
+
+                            <b>
+                                48
+                            </b>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <label>
+                                Tackles
+                            </label>
+
+                            <b>
+                                31
+                            </b>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <label>
+                                Shots on target
+                            </label>
+
+                            <b>
+                                ${player.shotsOnTarget}
+                            </b>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <label>
+                                Key passes
+                            </label>
+
+                            <b>
+                                ${player.keyPasses}
+                            </b>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TRANSFER -->
+
+                <div class="section">
+
+                    <h4>
+                        Transfer trail
+                    </h4>
+
+
+                    <div class="transfer">
+
+                        <div class="transfer-main">
+
+                            <strong>
+                                ${player.from1}
+                            </strong>
+
+                            <span class="arrow">
+                                →
+                            </span>
+
+                            <strong>
+                                ${player.to1}
+                            </strong>
+
+                            <span class="fee">
+                                ${player.fee1}
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="modal-meta"
+                            style="margin-top:7px"
+                        >
+
+                            ${player.type1}
+                            •
+                            ${player.date1}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NOTES -->
+
+                <div class="section">
+
+                    <h4>
+                        Scout notes
+                    </h4>
+
+
+                    <p class="note">
+
+                        Profile prepared from available
+                        scouting data. Match performance,
+                        transfer information and valuation
+                        should be independently verified
+                        before professional decisions.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    `;
+
+
+    document
+        .getElementById("overlay")
+        .classList.add("open");
+
+
+    document.body.style.overflow =
+        "hidden";
+}
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeProfile(){
+
+    document
+        .getElementById("overlay")
+        .classList.remove("open");
+
+    document.body.style.overflow =
+        "";
+}
+
+
+/* =========================================================
+   CONTACT AGENT
+========================================================= */
+
+function contactAgent(name){
+
+    alert(
+        "Agent contact workflow for " +
+        name +
+        " can be connected to email, WhatsApp or your CRM."
+    );
+}
+
+
+/* =========================================================
+   RESET FILTERS
+========================================================= */
+
+function resetFilters(){
+
+    document.getElementById(
+        "search"
+    ).value = "";
+
+    document.getElementById(
+        "position"
+    ).value = "";
+
+    document.getElementById(
+        "age"
+    ).value = "";
+
+    document.getElementById(
+        "level"
+    ).value = "";
+
+    document.getElementById(
+        "value"
+    ).value = "";
+
+    renderPlayers();
+}
+
+
+/* =========================================================
+   EXPORT
+========================================================= */
+
+function exportReport(){
+
+    alert(
+        "The export system is ready to connect to a PDF/report generator."
+    );
+}
+
+
+/* =========================================================
+   SEARCH + FILTER EVENTS
+========================================================= */
+
+[
+    "search",
+    "position",
+    "age",
+    "level",
+    "value"
+
+].forEach(id => {
+
+    document
+        .getElementById(id)
+        .addEventListener(
+            "input",
+            renderPlayers
+        );
+
+});
+
+
+/* =========================================================
+   CLOSE MODAL WHEN CLICKING BACKDROP
+========================================================= */
+
+document
+    .getElementById("overlay")
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target.id ===
+                "overlay"
+            ){
+
+                closeProfile();
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeProfile();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+updateDashboardStats();
+
+renderPlayers();
+
 </script>
+
 </body>
 </html>
